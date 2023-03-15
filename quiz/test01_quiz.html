@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="script_div"></div>
+        <script>
+            let str, age, name, club;
+            let width_div, height_div, div;
+            let arr;
+            for (let i = 0; i < 6; i++) {
+                if (i == 0) {
+                    str = prompt('input str', 'String');
+                    alert(str);
+                }
+
+                else if (i == 1) {
+                    age = prompt("input your age");
+                    console.log(`Your age is ${age}.`);
+                }
+
+                else if (i == 2) {
+                    name = prompt("input your name");
+                    document.write(`${name}'s age is ${age}.`);
+                }
+
+                else if (i == 3) {
+                    club = confirm("Are you belong this club?");
+                    console.log(club);
+                }
+
+                else if (i == 4) {
+                    arr = [...name];
+                    console.log(Array.isArray(arr));
+                    console.log(arr);
+                }
+                else {
+                    width_div = prompt("input width");
+                    height_div = prompt("input height");
+
+                    width_div += "px";
+                    height_div += "px";
+
+                    div = document.getElementById('script_div');
+                    div.style.width = width_div;
+                    div.style.height = height_div;
+                    div.style.backgroundColor = "#ff0000";
+                }
+            }
+            
+        </script>
+    </body>
+</html>
