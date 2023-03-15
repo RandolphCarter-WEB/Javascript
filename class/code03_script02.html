@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            console.log(1);
+            console.log(0);
+            console.log(-1234);
+            console.log(1234);
+            console.log(9999999999999999999999999999999999);
+            console.log(12.12314);
+            console.log(0.0000000000000000000000000123123);
+            
+            console.log(0x10);
+            console.log(0101011);
+    
+            console.log(5e5);
+            console.log(5e-5);
+    
+            // infinity
+            console.log(1 / 0);
+            console.log(-1 / 0);
+            console.log(isFinite(1/0));
+            console.log(isFinite("a"));
+
+            // not infinity
+            console.log(isFinite(21));
+
+            console.log(Infinity == Infinity);
+            console.log(Infinity === Infinity);
+            console.log(Infinity === Infinity+10);
+
+            // Nan num
+            console.log(0 / 0);
+            console.log("a" / 0);
+
+            console.log(isNaN(213123));
+            console.log(isNaN("a" / 0));
+            console.log(isNaN("a"));
+
+            console.log(NaN == NaN);
+            console.log(NaN == null);
+            console.log(NaN == Infinity);
+        </script>
+    </body>
+</html>
