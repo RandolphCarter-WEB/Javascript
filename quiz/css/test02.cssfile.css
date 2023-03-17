@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@300&display=swap');
+
+:root {
+    --backgroundcolor: #E8E2E2;
+    --buttoncolor: #F5F5F5;
+
+    --numberfont: 'Roboto', sans-serif;
+    --buttonfont: 'Montserrat', sans-serif;
+}
+
+.main_container {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--backgroundcolor);
+}
+
+.calculator {
+    display: grid;
+    padding: 1rem;
+
+    position: absolute;
+    top: 15%;
+    left: 25%;
+
+    gap: 1rem;
+
+    width: 60vh;
+    height: 70vh;
+
+    border-radius: 1em;
+    background-color: var(--buttoncolor);
+    box-shadow: 4px 4px 10px 1px gray;
+}
+
+/* Input data box css */
+    .data_inoutput { 
+        justify-self: center;
+        align-self: self-end;
+        overflow: auto;
+    }
+
+    .data_inoutput #calculator_data {
+        width: 540px;
+        height: 80px;
+
+        border: 0px;
+        border-radius: 0.5em;
+        background-color: white;
+
+        color: transparent;
+        text-shadow: 0 0 0 black;
+
+        font-size: 3rem;
+        font-family: var(--numberfont);
+        text-align: right;
+        outline: none;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    #calculator_data::placeholder {
+        padding: 2rem;
+
+        text-align: right;
+        font-size: 1rem;
+    }
+
+/* Button css */
+    .user_button {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 1.5rem;
+    }
+
+    .user_button div[class^="button_"] {
+        padding: 25% 0;
+        border-radius: 1rem;
+        background-color: var(--buttoncolor);
+        box-shadow: 2px 2px 2px 1.3px gray;
+
+        font-family: var(--buttonfont);
+        font-size: 2rem;
+    }
+
+    .Number_input {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+
+        padding: 0.5rem;
+
+        width: auto;
+        height: 25rem;
+    }
+
+    .Number_input div {
+        width: 5rem;
+        height: 5rem;
+
+        text-align: center;
+    }
+
+    .Operator_input {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+        padding: 0.5rem;
+
+        width: auto;
+        height: 25rem;
+    }
+
+    .Operator_input div {
+        text-align: center;
+    }
+
+    .Operator_input div:nth-child(5) {
+        grid-area: 3 / 1 / 5 / 2;
+
+        padding: 100% 0;
+    }
+
+    div[class^="button_"]:active {
+        box-shadow: 2px 2px 2px 1.3px inset gray;
+    }
+    div[class^="button_"]:active p{
+        transform: translate(1px, 1px);
+    }
