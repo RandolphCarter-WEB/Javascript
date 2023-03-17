@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div>Developer : hello Dom world</div>
+        <script>
+            document.getElementsByTagName("div")[0].style.color = "#ff0000";
+            </script>
+
+        <div>COMMAND : hi Developer</div>
+        <script>
+            document.getElementsByTagName("div")[1].style.color = "blue";
+        </script>
+
+        <div id="div01">Developer : how's going?</div>
+        <script>
+            document.querySelector("#div01").style.color = "green";
+            </script>
+
+        <div class="div11">COMMAND : Good</div>
+        <div class="div11">COMMAND : Good</div>
+        <div class="div11">COMMAND : Good</div>
+        <div class="div11">COMMAND : Good</div>
+        <div class="div11">COMMAND : Good</div>
+        <div class="div11">COMMAND : ERROR</div>
+        <button id="button01">ERROR FIX</button>
+        <script>
+            // document.getElementsByClassName("div11")[2].style.color = "yellow";
+            // document.querySelector(".div11").style.color = "yellow";
+            for (let i = 0; i < 6; i++) {
+                document.getElementsByClassName("div11")[i].style.color = "yellow";
+            }
+
+            document.getElementsByClassName("div11")[0].style.color = "black";
+
+            let div11 = document.querySelectorAll(".div11")[3];
+            div11.value = "123124";
+
+            console.log(div11.value);
+
+            document.getElementById("button01").addEventListener("click", function() {
+                for (let i = 0; i < 6; i++) {
+                    let chtxt = document.getElementsByClassName("div11")[i];
+                    chtxt.textContent = "@@ERROR! ERROR!@@"
+                }
+            })
+            </script>
+    </body>
+</html>
