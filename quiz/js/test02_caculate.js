@@ -1,4 +1,6 @@
 let number = document.getElementById("calculator_data");
+let num01_div = document.getElementById("num01");
+let work_div = document.getElementById("work");
 
 let num01 = null;
 let num02 = null;
@@ -30,8 +32,10 @@ function Input_Value(num) {
 
 function Check_Num(value) {
     work = value;
+
     if (num01 == null) {
         num01 = number.value;
+        num01_div.value = num01;
         reset_data();
     }
     else if (num01 != null) {
@@ -107,6 +111,7 @@ function Input_Number(value) {
 
 function Input_Operator(value) {
     console.log(value);
+    work_div.value = value;
     switch(value) {
         case "%":
             Check_Num(value);
