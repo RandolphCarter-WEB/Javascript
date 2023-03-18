@@ -1,6 +1,6 @@
 let number = document.getElementById("calculator_data");
-let num01_div = document.getElementById("num01");
-let work_div = document.getElementById("work");
+let num01_input = document.getElementById("num01");
+let work_input = document.getElementById("work");
 
 let num01 = null;
 let num02 = null;
@@ -35,12 +35,13 @@ function Check_Num(value) {
 
     if (num01 == null) {
         num01 = number.value;
-        num01_div.value = num01;
+        num01_input.value = num01;
         reset_data();
     }
     else if (num01 != null) {
         num02 = number.value;
         num01 = calculator(work);
+        num01_input.value = num01;
         reset_data();
     }
     else {
@@ -49,6 +50,9 @@ function Check_Num(value) {
 }
 
 function calculator(work) {
+    if (work_input.tagName === "INPUT") {
+        work_input.value = work;
+    }
     switch(work) {
         case '+':
             return parseInt(num01) + parseInt(num02);
@@ -58,7 +62,7 @@ function calculator(work) {
             return parseInt(num01) / parseInt(num02);
         case '%':
             return parseInt(num01) % parseInt(num02);
-        case '*':
+        case 'x':
             return parseInt(num01) * parseInt(num02);
         default:
             console.log(`ERROR[func calculator]>> Operator Error`);
@@ -110,17 +114,18 @@ function Input_Number(value) {
 }
 
 function Input_Operator(value) {
-    console.log(value);
-    work_div.value = value;
     switch(value) {
         case "%":
             Check_Num(value);
             break;
         case "RS":
             reset_data();
+            num01_input.value = "";
+            work_input.value = "";
+
             reset_num();
             break;
-        case "X":
+        case "x":
             Check_Num(value);
             break;
         case "/":

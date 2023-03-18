@@ -85,6 +85,7 @@
 
         color: transparent;
         text-shadow: 0 0 0 black;
+        outline: none;
         text-align: end;
         
         font-family: var(--numberfont);
