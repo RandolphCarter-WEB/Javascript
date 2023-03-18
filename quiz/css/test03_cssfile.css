@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto+Condensed:ital@1&family=Roboto:wght@300&display=swap');
+
+:root {
+    --BackgroundColor: #413543;
+    --ButtonColor: #F0EB8D;
+    --DivColor: #8F43EE;
+    --containerColor: #97DEFF;
+
+    --TitleFont: 'Roboto Condensed', sans-serif;
+    --NumberFont: 'Roboto', sans-serif;
+    --ButtonFont: 'Montserrat', sans-serif;
+}
+
+.main_container {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+
+    padding: 2rem;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--BackgroundColor);
+}
+
+.main_container > p {
+    align-self: end;
+    font-family: var(--TitleFont);
+    font-size: 5rem;
+
+    text-align: center;
+
+    color: var(--DivColor);
+    text-shadow: 3px 4.5px 0px #F0EB8D;
+}
+
+.input_divnum {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+
+    padding: 3rem;
+
+    justify-self: center;
+    align-self: center;
+
+    width: 700px;
+    height: 200px;
+    background-color: var(--DivColor);
+
+    border-radius: 2em;
+
+    box-shadow: 10px 10px 0px #F0EB8D;
+}
+
+#DivNumber_Data {
+    padding: 1.5rem;
+
+    width: 450px;
+    height: auto;
+
+    font-family: var(--NumberFont);
+    font-size: 3rem;
+
+    color: transparent;
+    text-shadow: 0 0 0 black;
+    box-shadow: 2px 2px 5px inset lightgray;
+
+    background-color: aliceblue;
+    border: 0;
+    border-radius: 0.5em;
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+#input_num {
+    font-family: var(--ButtonFont);
+    font-size: 2rem;
+
+    background-color: var(--ButtonColor);
+    border-radius: 0.5em;
+    box-shadow: 2px 2px 5px black;
+}
+
+#input_num:active {
+    box-shadow: 2px 2px 5px inset black;
+}
+
+#input_num:active p {
+    transform: translate(2px, 2px);
+}
