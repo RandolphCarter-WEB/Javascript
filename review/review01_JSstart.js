@@ -9,3 +9,4 @@ console.log(value);
 console.log(typeof value);
 
 console.log("5" * 2);
+

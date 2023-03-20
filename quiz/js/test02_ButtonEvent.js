@@ -9,6 +9,7 @@ buttons_num.forEach(button => {
             Input_Number(button.getAttribute("value"));
             button.disabled = true;
             isDisabled = true;
+
             setTimeout(() => {
                 button.disabled = false;
                 isDisabled = false;
@@ -23,6 +24,7 @@ buttons_ops.forEach(button => {
             Input_Operator(button.getAttribute("value"));
             button.disabled = true;
             isDisabled = true;
+
             setTimeout(() => {
                 button.disabled = false;
                 isDisabled = false;
