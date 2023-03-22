@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="#" method="get">
+            <input type="checkbox" name="chk" id="chk1">
+            <button type="button" id="btn">Button</button>
+        </form>
+
+        <script>
+            document.getElementById("btn").onclick = function () {
+                let a = document.getElementById("chk1").checked;
+                console.log(a);
+            };
+
+            document.getElementById("chk1").addEventListener("change", function() {
+                console.log("change status.");
+            });
+        </script>
+    </body>
+</html>

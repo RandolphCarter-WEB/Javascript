@@ -15,7 +15,7 @@ document.querySelector("#btn").addEventListener("click", function() {
                 (user_input.value == "2" && com_input == 3) ||
                 (user_input.value == "3" && com_input == 1);
 
-    //let ez_lose = (com_input%3 - 1) == user_input;
+    //let ez_lose = (user_input%3 + 1) == com_input;
 
     if(win) {
         result.innerHTML = "You Win!";
