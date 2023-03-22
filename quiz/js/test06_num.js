@@ -1,7 +1,7 @@
 function num_analysis() {
     let num01 = document.getElementById("input_num01");
     let num02 = document.getElementById("input_num02");
-    let result = document.getElementById("result")
+    let result = document.getElementById("result");
 
     if (num01.value > num02.value) {
         if (num01.value % num02.value == 0) {
