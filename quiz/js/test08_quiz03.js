@@ -52,18 +52,15 @@ function AnswerList() {
     return answerlist;
 }
 
-function ascending(a, b) {
-    return a - b;
-}
+function findAnswer(array01, array02) {
+    let result = array01.filter(Element => array02.includes(Element));
 
-function ListSort(array) {
-    let sortresult = array.slice().sort(ascending);
-    return sortresult;
+    return result;
 }
 
 function main() {
     let main = document.querySelector("#main_container");
-    let answerlist = ListSort(AnswerList());
+    let answerlist = AnswerList();
 
     let id = "rd";
 
@@ -77,10 +74,16 @@ function main() {
 
     document.querySelector("#btn").addEventListener("click", function() {
         let label = main.querySelectorAll('label input[type="checkbox"]:checked');
-        for (let i = 0; i < answerlist.length; i++) {
-            if (answerlist[i] == label[i].value) {
-                main.append(CreateDiv("result", label[i].value));
-            }    
+        let userlist = [];
+
+        for (let i = 0; i < label.length; i++) {
+            userlist[i] = +label[i].value;
+        }
+
+        let result = findAnswer(userlist, answerlist);
+
+        for (let i = 0; i < result.length; i++) {
+            main.append(CreateDiv("div"+i, result[i]));
         }
     });
 }
