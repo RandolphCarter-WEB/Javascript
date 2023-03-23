@@ -27,16 +27,6 @@ function CreateDiv(id_value) {
     return div;
 }
 
-function CheckedEvent(event) {
-    let answer = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
-    let result = document.querySelector("#result");
-
-    const label = event.target;
-    (+label.value === answer) ?
-        result.textContent = `정답입니다!`
-        : result.textContent = `정답이 아닙니다!`;
-}
-
 function main() {
     let main = document.querySelector("#main_container");
     let answer = Math.floor(Math.random() * (10 - 1 + 1)) + 1;

@@ -1,7 +1,7 @@
 function CreateLabel(value, text_content) {
     let label = document.createElement('label');
     label.setAttribute('for', value);
-    label.TextContent = text_content;
+    label.textContent = text_content;
 
     return label;
 }
@@ -9,7 +9,7 @@ function CreateLabel(value, text_content) {
 function CreateSelect(id_value) {
     let select = document.createElement('select');
     select.setAttribute('id', id_value);
-
+    select.setAttribute('name', id_value);
     SelectOfOption(select, 0, 100);
 
     return select;
@@ -48,7 +48,7 @@ function ChangeEvent(event) {
 function main() {
     let main = document.getElementById("main_container");
 
-    let label = CreateLabel("phone_num", `휴대폰 앞자리`);
+    let label = CreateLabel("phone_num", "휴대폰 앞자리");
     let select = CreateSelect("phone_num");
     let result_div = CreateDiv("result");
 
