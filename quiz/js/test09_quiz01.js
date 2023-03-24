@@ -1,5 +1,6 @@
 function CreateDiv(id_value) {
     const div = document.createElement("div");
+
     div.setAttribute("id", id_value);
 
     return div;
@@ -7,6 +8,7 @@ function CreateDiv(id_value) {
 
 function CreateButton(id_value, value) {
     const button = document.createElement("button");
+
     button.setAttribute("type", "button");
     button.setAttribute("id", id_value);
     button.setAttribute("value", value);
@@ -25,8 +27,8 @@ function ApplyCss(target_tag, width_value, height_value, backgroundcolor_value) 
 
 function MakeEnviron() {
     const main = document.querySelector("#main_container");
-
     const main_div = ApplyCss(CreateDiv("main_box"), "200px", "200px", "gray");
+
     main.append(main_div);
 
     for (let i = 1; i < 4; i++) {

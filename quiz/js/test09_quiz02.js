@@ -40,19 +40,18 @@ function MakeEnviron() {
 }
 
 function ChangeCss(target_tag, button_value) {
-    switch(button_value) {
-        case "1":
-            target_tag.style.backgroundImage = "url('../../../web_study/image/blog-post-02.jpg')";
-            break;
-        case "2":
-            target_tag.style.backgroundImage = "url('../../../web_study/image/blog-post-03.jpg')";
-            break;
-        case "3":
-            target_tag.style.backgroundImage = "url('../../../web_study/image/blog-post-04.jpg')";
-            break;
-        default:
-            console.log("[ERROR ChangeCss Func] >> button_value's value have error.");
-            break;
+    const img_path = {
+        1 : "../../../web_study/image/blog-post-02.jpg",
+        2 : "../../../web_study/image/blog-post-03.jpg",
+        3 : "../../../web_study/image/blog-post-04.jpg"
+    };
+
+    const img = img_path[button_value];
+    if(img) {
+        target_tag.style.backgroundImage = `url(${img})`;
+    }
+    else {
+        console.log("[ERROR ChangeCss Func] >> img Path Object or button_value have error.");
     }
 }
 
