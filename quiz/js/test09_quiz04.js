@@ -31,16 +31,14 @@ function main() {
     const main_div = document.querySelector("#main_container");
     const make_button = CreateButton("btn", "200px", "100px", "pink", "Button_Click!");
 
-    main_div.append(button);
-
-    //TODO : button EventListner Make
+    main_div.append(make_button);
 
     const button = document.querySelector("#btn");
     button.addEventListener("click", function() {
-        SetMain(main);
+        // SetMain(main);
         let result_div = CreateDiv("result", "500px", "200px", "white");
 
-        main_div.append(result_div);
+        document.body.prepend(result_div);
     });
 }
 
