@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script defer src="../js/test10_quiz06.js"></script>
+    </head>
+    <body>
+        <main-container></main-container>
+        <template id = "quiz10_06">
+            <style>
+                *{
+                    box-sizing: border-box;
+                }
+
+                .header {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0;
+
+                    margin: 0;
+                    padding: 0;
+
+                    width: 100%;
+                    height: 500px;
+                }
+
+                ul {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+
+                    margin: 0;
+                    padding: 0;
+
+                    width: 100%;
+                    height: 20%;
+                }
+                li {
+                    padding: 1rem;
+
+                    width: 100%;
+                    height: 100%;
+
+                    text-align: center;
+                    list-style: none;
+
+                    font-size: 1.5rem;
+
+                    background-color: lightgray;
+                }
+
+                li:hover {
+                    color: white;
+                    background-color: gray;
+                }
+                div[class="result"] div {
+                    display: none;
+
+                    padding: 1.5rem;
+                    margin: 0;
+
+                    width: 100%;
+                    height: 400px;
+
+                    color: white;
+                }
+            </style>
+
+            <div class="header">
+                <nav>
+                    <ul class="menu">
+                        <li id="home">Home</li>
+                        <li id="news">News</li>
+                        <li id="contact">Contact</li>
+                        <li id="about">About</li>
+                    </ul>
+                </nav>
+    
+                <div class="result">
+                    <div class="div_home">
+                        <h1>Home</h1>
+                        <p>Home is where the heart is...</p>
+                    </div>
+                    <div class="div_news">
+                        <h1>News</h1>
+                        <p>some news this fine day!</p>
+                    </div>
+                    <div class="div_contact">
+                        <h1>Contact</h1>
+                        <p>Get in touch, or swing by for a cup of coffee.</p>
+                    </div>
+                    <div class="div_about">
+                        <h1>About</h1>
+                        <p>Who we are and what we do.</p>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </body>
+</html>

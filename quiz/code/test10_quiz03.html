@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script defer src="../js/test10_quiz03.js"></script>
+    </head>
+    <body>
+        <main-container></main-container>
+        <template id="quiz10_03">
+            <style>
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 0.5rem;
+                }
+
+                .numpad {
+                    display: flex;
+                    width: 50px;
+                    height: 50px;
+
+                    justify-content: center;
+                    align-items: center;
+                    list-style: none;
+
+                    font-size: 1.5rem;
+
+                    background-color: lightgray;
+                    color: black;
+                }
+
+                .numpad:hover {
+                    background-color: gray;
+                    box-shadow: 1px 1px 1px inset gray;
+                }
+
+                .On_click {
+                    background-color: black;
+                    color: white;
+                }
+            </style>
+
+            <ul id="menu">
+                <li class="numpad On_click" id="num01">1</li>
+                <li class="numpad" id="num02">2</li>
+                <li class="numpad" id="num03">3</li>
+                <li class="numpad" id="num04">4</li>
+                <li class="numpad" id="num05">5</li>
+            </ul>
+        </template>
+    </body>
+</html>

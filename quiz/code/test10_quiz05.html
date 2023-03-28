@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script defer src="../js/test10_quiz05.js"></script>
+    </head>
+    <body>
+        <main-container></main-container>
+        <template id="quiz10_05">
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                .menu_section {
+                    display: grid;
+                    grid-template-columns: 1fr 2fr;
+                    gap: 0;
+
+                    margin: 0;
+                    padding: 0;
+
+                    border: 1px solid #000;
+                }
+
+                .menu {
+                    display: grid;
+                    grid-template-rows: repeat(3, 1fr);
+
+                    margin: 0;
+                    padding: 0;
+                }
+
+                li {
+                    padding: 1rem;
+                    
+                    height: 100%;
+
+                    list-style-type: none;
+                    font-size: 2rem;
+
+                    background-color: lightgray;
+                }
+                li:hover {
+                    background-color: gray;
+                }
+
+                div[class="result"] div {
+                    display: none;
+                }
+            </style>
+
+            <div class="menu_section">
+                <ul class="menu">
+                    <li id="seoul">서울</li>
+                    <li id="daegu">대구</li>
+                    <li id="busan">부산</li>
+                </ul>
+
+                <div class="result">
+                    <div id="div_seoul">
+                        <h1>Seoul</h1>
+                        <p>대한민국의 중심 도시 서울</p>
+                    </div>
+
+                    <div id="div_daegu">
+                        <h1>Dae-gu</h1>
+                        <p>대한민국 대표 관광지 대구</p>
+                    </div>
+
+                    <div id="div_busan">
+                        <h1>Busan</h1>
+                        <p>대한민국 두번째 직할 도시 부산</p>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </body>
+</html>

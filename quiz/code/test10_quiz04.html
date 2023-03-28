@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script defer src="../js/test10_quiz04.js"></script>
+    </head>
+    <body>
+        <main-container></main-container>
+        <template id="quiz10_04">
+            <style>
+                .menu_section {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0;
+
+                    margin: 0;
+                    padding: 0;
+
+                    width: 100%;
+                    height: auto;
+
+                    border: 1px solid #000;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0;
+
+                    margin: 0;
+                    padding: 0;
+
+                    width: 100%;
+                    height: auto;
+
+                    list-style: none;
+                }
+
+                li {
+                    padding: 1rem;
+                }
+
+                li[class$="title"] {
+                    background-color: lightgray;
+                }
+                li[class$="title"]:hover {
+                    background-color: gray;
+                }
+
+                li[class$="text"] {
+                    display: none;
+                }
+            </style>
+
+            <div class="menu_section">
+                <ul class="menu">
+                    <li class="menu01_title">Section01</li>
+                    <li class="menu01_text">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus a ducimus voluptates voluptate eaque dolor eveniet, ratione, consectetur mollitia magni harum vero molestiae. Architecto tempora qui laboriosam quam aliquam error.
+                    </li>
+                </ul>
+
+                <ul class="menu">
+                    <li class="menu02_title">Section02</li>
+                    <li class="menu02_text">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus a ducimus voluptates voluptate eaque dolor eveniet, ratione, consectetur mollitia magni harum vero molestiae. Architecto tempora qui laboriosam quam aliquam error.
+                    </li>
+                </ul>
+                
+                <ul class="menu">
+                    <li class="menu03_title">Section03</li>
+                    <li class="menu03_text">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus a ducimus voluptates voluptate eaque dolor eveniet, ratione, consectetur mollitia magni harum vero molestiae. Architecto tempora qui laboriosam quam aliquam error.
+                    </li>
+                </ul>
+            </div>
+        </template>
+    </body>
+</html>
