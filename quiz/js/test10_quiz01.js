@@ -169,9 +169,12 @@ function AddStyle(result_div) {
                 result_div.classList.remove("anime_color_div");
                 result_div.classList.add("style_div");
             }
-            else {
+            else if (result_div.classList.contains("anime_bigger_div")){
                 result_div.classList.remove("anime_bigger_div");
                 result_div.classList.add("style_div");
+            }
+            else {
+                
             }
         }
         else {

@@ -11,6 +11,10 @@
         <main-container></main-container>
         <template id="quiz10_04">
             <style>
+                * {
+                    box-sizing: border-box;
+                }
+
                 .menu_section {
                     display: flex;
                     flex-direction: column;
@@ -20,7 +24,6 @@
                     padding: 0;
 
                     width: 100%;
-                    height: auto;
 
                     border: 1px solid #000;
                 }
@@ -34,16 +37,16 @@
                     padding: 0;
 
                     width: 100%;
-                    height: auto;
 
                     list-style: none;
                 }
 
                 li {
-                    padding: 1rem;
+                    padding: 0 2rem;
                 }
 
                 li[class$="title"] {
+                    padding: 1rem;
                     background-color: lightgray;
                 }
                 li[class$="title"]:hover {
@@ -51,7 +54,9 @@
                 }
 
                 li[class$="text"] {
-                    display: none;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.2s linear;
                 }
             </style>
 

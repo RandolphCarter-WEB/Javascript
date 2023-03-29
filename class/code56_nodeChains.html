@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="div1">
+            <p id="p1">Text01</p>
+            <p id="p2">Text02</p>
+            <p id="p3">Text03</p>
+        </div>
+        <div id="div2">
+            <p id="p4">Text04</p>
+            <p id="p5">Text05</p>
+            <p id="p6">Text06</p>
+        </div>
+
+        <div id="div3" style="border: 1px solid black;">
+            <p id="pmain">CenterText</p>
+        </div>
+
+        <script>
+            p2.parentElement.style.border = "1px solid red";
+            p2.previousElementSibling.style.border = "1px solid blue";
+            p2.nextElementSibling.style.border = "1px solid green";
+
+            div2.firstElementChild.style.color = "red";
+            div2.lastElementChild.style.color = "blue";
+            div2.children[1].style.color = "brown";
+
+            div3.prepend(p2);
+            div3.append(p3);
+            const copy_p1 = p1.cloneNode();
+            copy_p1.textContent = "Copy Text"
+            div3.prepend(copy_p1);
+
+            p5.remove();
+
+            pmain.before(p4);
+            pmain.after(p6);
+
+            const arr1 = ["z", "d", "y", "a", "r", "x"]
+            arr1.sort(function(a,b) {
+                return a.localeCompare(b);
+            });
+            console.log(arr1);
+
+        </script>
+    </body>
+</html>

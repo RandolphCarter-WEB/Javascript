@@ -32,7 +32,7 @@ class Customdiv extends HTMLElement {
                                 result_element.style.display = "none";
                             }
                         }
-                    }
+                    } 
                 })
             });
         });

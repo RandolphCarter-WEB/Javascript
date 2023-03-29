@@ -7,11 +7,13 @@ class Customdiv extends HTMLElement {
         button_list.forEach(button => {
             button.addEventListener("click", function() {
                 const show_div = this.querySelector("li[class$='text']");
-                if(show_div.style.display == "none") {
-                    show_div.style.display = "block";
+                if(show_div.style.maxHeight) {
+                    show_div.style.maxHeight = null;
+                    show_div.style.padding = "0 2rem";
                 }
                 else {
-                    show_div.style.display = "none";
+                    show_div.style.maxHeight = (show_div.scrollHeight+100)+"px";
+                    show_div.style.padding = "2rem";
                 }
             });
         });
