@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script defer src="../js/test11_quiz02.js"></script>
+
+        <title>Document</title>
+    </head>
+    <body>
+        <main-container></main-container>
+        <template id="quiz11_02">
+            <div class="ul_list">
+                <ul>
+                    <li>
+                        <label for="group01_item01">first_Item01
+                            <input type="checkbox" name="group01_check" id="group01_item01">
+                        </label></li>
+    
+                    <li>
+                        <label for="group01_item02">first_Item02
+                            <input type="checkbox" name="group01_check" id="group01_item02">
+                        </label></li>
+    
+                    <li>
+                        <label for="group01_item03">first_Item03
+                            <input type="checkbox" name="group01_check" id="group01_item03">
+                        </label></li>
+    
+                    <li>
+                        <label for="group01_item04">first_Item04
+                            <input type="checkbox" name="group01_check" id="group01_item04">
+                        </label></li>
+                    <li>
+                        <label for="group01_item05">first_Item05
+                            <input type="checkbox" name="group01_check" id="group01_item05">
+                        </label></li>
+                </ul>
+    
+                <ul>
+                    <li>
+                        <label for="group02_item01">second_Item01
+                            <input type="checkbox" name="group02_check" id="group02_item01">
+                        </label></li>
+    
+                    <li>
+                        <label for="group02_item02">second_Item02
+                            <input type="checkbox" name="group02_check" id="group02_item02">
+                        </label></li>
+    
+                    <li>
+                        <label for="group02_item03">second_Item03
+                            <input type="checkbox" name="group02_check" id="group02_item03">
+                        </label></li>
+    
+                    <li>
+                        <label for="group02_item04">second_Item04
+                            <input type="checkbox" name="group02_check" id="group02_item04">
+                        </label></li>
+                    <li>
+                        <label for="group02_item05">second_Item05
+                            <input type="checkbox" name="group02_check" id="group02_item05">
+                        </label></li>
+                </ul>
+            </div>
+
+            <div class="button_list">
+                <button type="button" id="UpToUp_ul01">Up to up (ul_01 -> ul02)</button>
+                <button type="button" id="UpToDown_ul01">Up to down (ul_01 -> ul02)</button>
+                <button type="button" id="DownToUp_ul01">Bottom to up (ul_01 -> ul02)</button>
+                <button type="button" id="DownToDown_ul01">bottom to bottom (ul_01 -> ul02)</button>
+
+                <button type="button" id="UpToUp_ul02">Up to up (ul_02 -> ul01)</button>
+                <button type="button" id="UpToDown_ul02">Up to down (ul_02 -> ul01)</button>
+                <button type="button" id="DownToUp_ul02">Bottom to up (ul_02 -> ul01)</button>
+                <button type="button" id="DownToDown_ul02">bottom to bottom (ul_02 -> ul01)</button>
+
+                <button type="button" id="Delete">Delete Element with checked</button>
+                <button type="button" id="Remove">Remove Element textContent with checked</button>
+            </div>
+        </template>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <custom-elem>
+            <span slot="username">OST</span>
+            <span slot="birthday">0228</span>
+            <div slot="subdiv">
+                <ul>
+                    <li>Text01</li>
+                    <li>Text02</li>
+                    <li>Text03</li>
+                </ul>
+            </div>
+        </custom-elem>
+
+        <template id="temp1">
+            <h1>Name : <slot name ="username"></slot></h1>
+            <h3>Birthday : <slot name ="birthday"></slot></h3>
+            <div><slot name="subdiv"></slot></div>
+        </template>
+        <script>
+            class CustomElem extends HTMLElement {
+                connectedCallback() {
+                    this.attachShadow({mode : "open"});
+                    this.shadowRoot.append(temp1.content.cloneNode(true));
+                }
+            }
+            customElements.define("custom-elem", CustomElem);
+        </script>
+    </body>
+</html>
