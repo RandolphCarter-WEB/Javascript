@@ -12,55 +12,77 @@
     <body>
         <main-container></main-container>
         <template id="quiz11_02">
+            <style>
+                ul {
+                    padding: 1rem;
+
+                    text-align: center;
+                    list-style: none;
+
+                    font-size: 1.5rem;
+                    border: 1px solid #000;
+                }
+
+                .button_list {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 0.3rem;
+                }
+
+                #TextContentInput {
+                    grid-area: 4 / 1 / 5 / 3;
+                }
+
+            </style>
             <div class="ul_list">
-                <ul>
+                <ul id="ul01">
                     <li>
-                        <label for="group01_item01">first_Item01
+                        <label for="group01_item01"><span>first_Item01</span>
                             <input type="checkbox" name="group01_check" id="group01_item01">
                         </label></li>
     
                     <li>
-                        <label for="group01_item02">first_Item02
+                        <label for="group01_item02"><span>first_Item01</span>
                             <input type="checkbox" name="group01_check" id="group01_item02">
                         </label></li>
     
                     <li>
-                        <label for="group01_item03">first_Item03
+                        <label for="group01_item03"><span>first_Item01</span>
                             <input type="checkbox" name="group01_check" id="group01_item03">
                         </label></li>
     
                     <li>
-                        <label for="group01_item04">first_Item04
+                        <label for="group01_item04"><span>first_Item01</span>
                             <input type="checkbox" name="group01_check" id="group01_item04">
                         </label></li>
                     <li>
-                        <label for="group01_item05">first_Item05
+                        <label for="group01_item05"><span>first_Item01</span>
                             <input type="checkbox" name="group01_check" id="group01_item05">
                         </label></li>
                 </ul>
     
-                <ul>
+                <ul id="ul02">
                     <li>
-                        <label for="group02_item01">second_Item01
+                        <label for="group02_item01"><span>second_Item01</span>
                             <input type="checkbox" name="group02_check" id="group02_item01">
                         </label></li>
     
                     <li>
-                        <label for="group02_item02">second_Item02
+                        <label for="group02_item02"><span>second_Item01</span>
                             <input type="checkbox" name="group02_check" id="group02_item02">
                         </label></li>
     
                     <li>
-                        <label for="group02_item03">second_Item03
+                        <label for="group02_item03"><span>second_Item01</span>
                             <input type="checkbox" name="group02_check" id="group02_item03">
                         </label></li>
     
                     <li>
-                        <label for="group02_item04">second_Item04
+                        <label for="group02_item04"><span>second_Item01</span>
                             <input type="checkbox" name="group02_check" id="group02_item04">
                         </label></li>
                     <li>
-                        <label for="group02_item05">second_Item05
+                        <label for="group02_item05"><span>second_Item01</span>
                             <input type="checkbox" name="group02_check" id="group02_item05">
                         </label></li>
                 </ul>
@@ -78,6 +100,7 @@
                 <button type="button" id="DownToDown_ul02">bottom to bottom (ul_02 -> ul01)</button>
 
                 <button type="button" id="Delete">Delete Element with checked</button>
+                <input type="text" name="" id="TextContentInput">
                 <button type="button" id="Remove">Remove Element textContent with checked</button>
             </div>
         </template>
