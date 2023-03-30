@@ -38,15 +38,11 @@ class CustomElementDiv extends HTMLElement {
 
     connectedCallback() {
         this.name_button.addEventListener("click", () => {
-            this.name_list.forEach(Element => {
-                this.sort_NameElement();
-            });
+            this.sort_NameElement();
         });
 
         this.country_button.addEventListener("click", () => {
-            this.country_list.forEach(Element => {
-                this.sort_CountryElement();
-            })
+            this.sort_CountryElement();
         });
     }
 }
