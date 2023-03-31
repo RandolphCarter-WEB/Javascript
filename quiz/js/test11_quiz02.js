@@ -9,6 +9,7 @@ class CustomElementDiv extends HTMLElement {
 
         this.button_delete = this.shadowRoot.querySelector("#Delete");
         this.button_remove = this.shadowRoot.querySelector("#Remove");
+        this.button_refresh = this.shadowRoot.querySelector("#Refresh");
 
         this.buttonHandlers = {
             UpToUp_ul01 : this.UpToUp_01,
@@ -81,7 +82,7 @@ class CustomElementDiv extends HTMLElement {
             this.checkedBox_delete = this.shadowRoot.querySelectorAll("[id^='group01']:checked, [id^='group02']:checked");
             this.checkedBox_delete.forEach(Element => {
                 this.delete_element(Element);
-            })
+            });
         });
 
         this.button_remove.addEventListener("click", () => {
@@ -90,8 +91,13 @@ class CustomElementDiv extends HTMLElement {
 
             this.checkedBox_remove.forEach(Element => {
                 this.remove_element(Element, this.Input_Text);
-            })
+            });
         });
+
+        this.button_refresh.addEventListener("click", () => {
+            //TODO: Make refresh
+        });
+
     }
 }
 

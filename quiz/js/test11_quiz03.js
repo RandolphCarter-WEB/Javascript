@@ -7,19 +7,25 @@ class CustomElementDiv extends HTMLElement {
 
         this.button_sort = this.shadowRoot.querySelector("#sort");
         this.button_resort = this.shadowRoot.querySelector("#reverse_sort");
-        this.food_list = this.shadowRoot.querySelectorAll("#food_list li");
     }
 
     food_sort = () => {
-        for (let i = 0; i < this.food_list.length; i++) {
-            for (let j = i+1; j < this.food_list.length; j++) {
-                if(this.food_list[i].textContent > this.food_list[j].textContent) {
-                    let temp = this.food_list[i].textContent;
-                    this.food_list[i].textContent = this.food_list[j].textContent;
-                    this.food_list[j].textContent = temp;
-                }
-            }   
-        }
+        // for (let i = 0; i < this.food_list.length; i++) {
+        //     for (let j = i+1; j < this.food_list.length; j++) {
+        //         if(this.food_list[i].textContent > this.food_list[j].textContent) {
+        //             let temp = this.food_list[i].textContent;
+        //             this.food_list[i].textContent = this.food_list[j].textContent;
+        //             this.food_list[j].textContent = temp;
+        //         }
+        //     }   
+        // }
+
+        Array.from(this.shadowRoot.firstElementChild.children).sort(function (a, b) {
+            return a.textContent.localeCompare(b.textContent);
+        }).forEach((food_sort_element) => {
+            console.log(this.shadowRoot.firstElementChild.children);
+            this.shadowRoot.firstElementChild.append(food_sort_element);
+        });
     }
 
     food_resort = () => {
@@ -32,6 +38,13 @@ class CustomElementDiv extends HTMLElement {
                 }
             }   
         }
+
+        //TODO: Make reverse();
+        // Array.from(this.shadowRoot.firstElementChild.children).sort(function (a, b) {
+        //     return a.textContent.localeCompare(b.textContent);
+        // }).forEach((food_sort_element) => {
+        //     this.shadowRoot.firstElementChild.append(food_sort_element);
+        // });
     }
 
     connectedCallback() {
