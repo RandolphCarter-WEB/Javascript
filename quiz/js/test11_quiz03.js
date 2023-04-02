@@ -22,7 +22,8 @@ class CustomElementDiv extends HTMLElement {
 
         Array.from(this.shadowRoot.firstElementChild.children).sort(function (a, b) {
             return a.textContent.localeCompare(b.textContent);
-        }).forEach((food_sort_element) => {
+        }).forEach((food_sort_element) => {  
+            console.log(this.shadowRoot.firstElementChild);
             console.log(this.shadowRoot.firstElementChild.children);
             this.shadowRoot.firstElementChild.append(food_sort_element);
         });

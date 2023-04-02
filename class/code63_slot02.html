@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <main-container>
+            <p>나는 아무말이나 쓴다.</p>
+            <span slot="username">OST</span>
+            <span slot="birth">0228</span>
+            <p>this is my info.</p>
+        </main-container>
+
+        <template id="temp1">
+            <h1>name :
+                <slot name="username"></slot>
+            </h1>
+
+            <h3>birthday :
+                <slot name="birth"></slot>
+            </h3>
+            <div>
+                <h4>INFO</h4>
+                <slot></slot>
+            </div>
+        </template>
+
+        <script>
+            class CustomElem extends HTMLElement {
+                constructor() {
+                    super();
+
+                    this.attachShadow({mode : "open"});
+                    this.shadowRoot.append(temp1.content.cloneNode(true));
+                }
+
+                connectedCallback() {
+                    
+                }
+            }
+
+            customElements.define("main-container", CustomElem);
+        </script>
+    </body>
+</html>

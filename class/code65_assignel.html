@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <custom-menu>
+            <span slot="title">Candy menu</span>
+            <li slot="items">Lollipop</li>
+            <li slot="items">Fruit Candy</li>
+        </custom-menu>
+        
+        <template id="temp1">
+            <div class="menu">
+                <slot name="title"></slot>
+                <ul>
+                    <slot name="items"></slot>
+                </ul>
+            </div>
+
+        </template>
+
+        <script>
+            customElements.define("custom-menu", class extends HTMLElement {
+                item = [];
+                constructor() {
+                    super();
+
+                    this.attachShadow({mode : "open"});
+                    this.shadowRoot.append(temp1.content.cloneNode(true));
+                }
+
+                connectedCallback() {
+                    this.shadowRoot.addEventListener("slotchange", (e) => {
+                        console.dir(e.target.assignedElements());
+                    });
+                }
+            }) 
+        </script>
+    </body>
+</html>

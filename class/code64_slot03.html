@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <main-container>
+            <li slot="listitems">First Element</li>
+            <li slot="listitems">Second Element</li>
+        </main-container>
+
+        <button type="button" id="btn1">Add</button>
+
+        <template id="temp1">
+            <ul>
+                <slot name="listitems"></slot>
+            </ul>
+        </template>
+
+        <script>
+            const button = document.querySelector("#btn1");
+            button.onclick = () => {
+                const li = document.createElement("li");
+                li.textContent = "Add li";
+                li.setAttribute("slot", "listitems");
+                document.querySelector("main-container").append(li);
+            }
+
+            class CustomElem extends HTMLElement {
+                constructor() {
+                    super();
+
+                    this.attachShadow({mode: "open"});
+                    this.shadowRoot.append(temp1.content.cloneNode(true));
+                }
+
+                connectedCallback() {
+                    this.shadowRoot.querySelector("slot").addEventListener("slotchange", () => {
+                        console.log("Add item in slot");
+                    });
+                }
+            }
+
+            customElements.define("main-container", CustomElem);
+        </script>
+    </body>
+</html>
