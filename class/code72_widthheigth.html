@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            #div1 {
+                margin:15px;
+                padding: 10px;
+
+                width: 400px;
+                height: 250px;
+
+                overflow: hidden;
+                overflow-x: scroll;
+                overflow-y: scroll;
+
+                border: 5px solid red;
+                background-color: lightblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis et nobis provident rem inventore voluptate placeat, dolorem porro dolorum. Earum impedit nam optio sit ipsam id fuga assumenda fugiat repellendus.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio provident, maiores nam ipsam placeat excepturi delectus a, deserunt minus aut eveniet est id nesciunt doloremque! Veritatis officiis ea voluptatum quam!
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi nobis maiores error, provident nulla autem quos veritatis quaerat facere iure saepe, natus deserunt, quasi nisi libero ipsa. Consectetur, excepturi voluptatem.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, magni voluptatum iusto ut rerum reprehenderit quisquam laboriosam dolorum, id beatae officiis culpa? Vitae consequatur officia omnis nam explicabo minima temporibus.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia suscipit neque nesciunt tempore quaerat, voluptatibus aspernatur repudiandae pariatur distinctio adipisci necessitatibus delectus rerum totam ipsa exercitationem doloremque provident cumque. Doloribus!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod excepturi, pariatur non inventore error nisi est officiis voluptate voluptatibus, quas voluptas fugit consequuntur atque sequi, cumque quisquam minima esse numquam.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, temporibus possimus, architecto amet blanditiis velit libero quibusdam laudantium eos exercitationem doloremque corrupti explicabo deleniti repellat quo vel deserunt excepturi facilis?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus molestiae sed at! A, veniam velit! Nisi voluptates dicta enim nulla iste saepe assumenda iure mollitia velit consectetur, corrupti quo voluptatem.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere inventore itaque delectus illum! Aspernatur facere harum consectetur consequuntur. Ullam tenetur praesentium sint voluptate voluptatibus molestias suscipit inventore. Voluptatum, dolores soluta!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, at! Quidem animi cum consequuntur. Voluptatibus placeat, quo nihil iusto itaque maiores laudantium alias tenetur. Reiciendis, iure. Adipisci repudiandae eligendi quam.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum ad rem architecto accusamus! Dolore eos quo rerum doloremque repudiandae odio iusto exercitationem atque suscipit, illum sunt pariatur perspiciatis itaque delectus!
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas magni aperiam excepturi similique iure corrupti saepe sunt, quisquam cumque incidunt error pariatur quos! Harum eveniet aut commodi laboriosam nemo sapiente.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque rerum possimus molestias quasi ex? Accusamus, quia. Voluptatum a, porro at tenetur unde temporibus rerum non eveniet tempora, nisi laborum nostrum!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab a aliquam velit, quod voluptatem in aliquid blanditiis eveniet! Minima quia facere repudiandae doloremque magni. Iste eligendi sequi delectus quisquam esse?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quam culpa similique sit maxime, distinctio eum cumque in dicta provident amet, quasi reiciendis deserunt vero facere accusantium ipsam repellendus eius.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus numquam dolor, odio cum repudiandae blanditiis quam asperiores tempora quibusdam consequatur aliquid, animi expedita quasi dolorem explicabo? Soluta veniam delectus aspernatur!
+        </div>
+        <button id="btn1" type="button">Click!</button>
+        <div id="print"></div>
+
+        <script>
+            document.querySelector("#btn1").addEventListener("click", () => {
+                const pw = document.createElement("p");
+                pw.textContent = `clientWidth : ${document.querySelector("#div1").clientWidth}px`;
+
+                const ph = document.createElement("p");
+                ph.textContent = `clientHeight : ${document.querySelector("#div1").clientHeight}px`;
+
+                const pofw = document.createElement("p");
+                ph.textContent = `offsetWidth : ${document.querySelector("#div1").offsetWidth}px`;
+
+                const pofh = document.createElement("p");
+                ph.textContent = `offsetHeight : ${document.querySelector("#div1").offsetHeight}px`;
+
+                const pscrollw = document.createElement("p");
+                ph.textContent = `scrollWidth : ${document.querySelector("#div1").scrollWidth}px`;
+
+                const pscrollh = document.createElement("p");
+                ph.textContent = `scrollHeight : ${document.querySelector("#div1").scrollHeight}px`;
+
+                document.querySelector("#print").append(pw, ph, pofw, pofh, pscrollw, pscrollh);
+            });
+        </script>
+    </body>
+</html>

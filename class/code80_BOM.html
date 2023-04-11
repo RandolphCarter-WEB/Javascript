@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button type="button" id="Btn1">Click!!</button>
+        <button id="Btn2" type="button">Click!!</button>
+        <button id="Btn3" type="button">Click!!</button>
+        <script>
+            const button1 = document.querySelector("#Btn1");
+            let my_window
+
+            button1.addEventListener("click", () => {
+                my_window = open("","mywin","width = 200, height = 100");
+                my_window.document.write("<p>This is My PopUp site.</p><div id='div1'></div>");
+            });
+
+            const button2 = document.querySelector("#Btn2");
+            button2.addEventListener("click", ()=> {
+                my_window = close();
+            });
+
+            const button3 = document.querySelector("#Btn3");
+            button3.addEventListener("click", () => {
+                my_window.document.querySelector("#div1").textContent = "This is Message to main site.";
+            });
+            
+        //     window.alert("BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM!");
+
+        //     console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        //     window.console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
+        //     console.group();
+        //     console.log("응애");
+        //     console.log("응애");
+        //     console.groupEnd();
+
+        //    window.open("code75_element.html");
+        </script>
+    </body>
+</html>

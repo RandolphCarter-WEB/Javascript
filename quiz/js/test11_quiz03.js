@@ -9,6 +9,7 @@ class CustomElementDiv extends HTMLElement {
         this.button_resort = this.shadowRoot.querySelector("#reverse_sort");
     }
 
+    //TODO: this를 조금 더 잘 써보자 심플하게
     food_sort = () => {
         // for (let i = 0; i < this.food_list.length; i++) {
         //     for (let j = i+1; j < this.food_list.length; j++) {

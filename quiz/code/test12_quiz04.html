@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script defer src="../js/test12_quiz04.js"></script>
+
+        <style>
+            .sticky-parent {
+                height: 700vh;
+            }
+            .sticky {
+                position: sticky;
+                top: 0;
+
+                max-height: 100vh;
+                overflow: hidden;
+            }
+
+            .dim {
+                display: block;
+                min-width: 50vw;
+                height: 100vh;
+            }
+
+            .horizontal {
+                display: flex;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="width: 100vw; height: 100vh; border: 1px solid black;">
+            <p>Scroll</p>
+        </div>
+
+        <div class="sticky-parent">
+            <div class="sticky">
+                <div class="horizontal">
+                    <div class="dim" style="background-color: aqua;"></div>
+                    <div class="dim" style="background-color: yellow;"></div>
+                    <div class="dim" style="background-color: lightgreen;"></div>
+                    <div class="dim" style="background-color: purple;"></div>
+                    <div class="dim" style="background-color: blue;"></div>
+                    <div class="dim" style="background-color: black;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div style="width: 100vw; height: 100vh;"></div>
+    </body>
+</html>

@@ -30,9 +30,10 @@ class CustomElementDiv extends HTMLElement {
         for (let i = 0; i < this.country_list.length; i++) {
             for (let j = i+1; j < this.country_list.length; j++) {
                 if(this.country_list[i].innerHTML > this.country_list[j].innerHTML) {
-                    let temp = this.country_list[i].innerHTML;
-                    this.country_list[i].innerHTML = this.country_list[j].innerHTML;
-                    this.country_list[j].innerHTML = temp;
+                    [this.country_list[i].innerHTML, this.country_list[j].innerHTML] = this.country_list[j].innerHTML, this.country_list[i].innerHTML;
+                    // let temp = this.country_list[i].innerHTML;
+                    // this.country_list[i].innerHTML = this.country_list[j].innerHTML;
+                    // this.country_list[j].innerHTML = temp;
                 }
             }   
         }

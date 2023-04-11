@@ -1,0 +1,26 @@
+{
+    "team" : [
+        {
+            "img" : "img/team1.jpg",
+            "name" : "Jane Doe",
+            "title" : "CEO & Founder",
+            "content" : "Phasellus eget enim eu lectus faucibus vestibulum.",
+            "email" : "example@example.com"
+        },
+        {
+            "img" : "img/team2.jpg",
+            "name" : "Mike Ross",
+            "title" : "Art Director",
+            "content" : "Phasellus eget enim eu lectus faucibus vestibulum.",
+            "email" : "example@example.com"
+        },
+        {
+            "img" : "img/team3.jpg",
+            "name" : "John Doe",
+            "title" : "Designer",
+            "content" : "Phasellus eget enim eu lectus faucibus vestibulum.",
+            "email" : "example@example.com"
+        }
+    ]
+}
+

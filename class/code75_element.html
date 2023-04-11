@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .test {
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>This is header.</h1>
+        <p id="p1" style="position:fixed">
+            asdasklfhaksfcnaisdfhasdk
+        </p>
+
+        <script>
+            window.onscroll = function () {
+                p1.innerHTML = `document.documentElement.scrollTop : ${document.documentElement.scrollTop}px`;
+                if(document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    document.getElementById("p1").className = "test";
+                }
+                else {
+                    document.getElementById("p1").className = " ";
+                }
+            }
+        </script>
+    </body>
+</html>

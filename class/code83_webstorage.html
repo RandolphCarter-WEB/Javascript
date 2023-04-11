@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button type="button" id="btn1">Input</button>
+        <button type="button" id="btn2">Get</button>
+        <button type="button" id="btn3">Delete</button>
+
+        <br>
+
+        <input type="text" name="key" id="key1">
+        <input type="text" name="val" id="val1">
+        <button id="btn4">Input Data</button>
+
+        <br>
+
+        <button type="button" id="btn5">Clear Data</button>
+        <button type="button" id="btn6">Insert</button>
+
+        <br>
+
+        <div id="result"></div>
+
+        <script>
+            const button1 = document.querySelector("#btn1");
+            const button2 = document.querySelector("#btn2");
+            const button3 = document.querySelector("#btn3");
+            const button4 = document.querySelector("#btn4");
+            const button5 = document.querySelector("#btn5");
+            const button6 = document.querySelector("#btn6");
+
+            const key_input = document.querySelector("#key1");
+            const val_input = document.querySelector("#val1");
+
+            const result = document.querySelector("#result");
+
+            button1.addEventListener("click", () => {
+                if(localStorage) {
+                    localStorage.setItem("test", "test-value");
+                }
+            });
+
+            button2.addEventListener("click", () => {
+                if(localStorage) {
+                    let value = localStorage.getItem("test");
+                    const p = document.createElement("p");
+                    p.textContent = value;
+
+                    result.append(p);
+                }
+            });
+
+            button3.addEventListener("click", () => {
+                if(localStorage) {
+                    localStorage.removeItem("test");
+                }
+            });
+
+            button4.addEventListener("click", () => {
+                if(localStorage) {
+                    let $key = key_input.value;
+                    let $val = val_input.value;
+                    localStorage.setItem($key, $val);
+                }
+            });
+
+            button5.addEventListener("click", () => {
+                localStorage.clear();
+            });
+
+            button6.addEventListener("click", () => {
+                if(sessionStorage) {
+                    let $key = key_input.value;
+                    let $val = val_input.value;
+
+                    sessionStorage.setItem($key, $val);
+                }
+            });
+        </script>
+    </body>
+</html>

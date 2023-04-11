@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+
+        <script defer src="../js/test12_quiz03.js"></script>
+
+        <style>
+            body {
+                margin: 0;
+
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .header {
+                position: fixed;
+                top: 0;
+                z-index: 1;
+
+                width: 100%;
+
+                background-color: #f1f1f1;
+            }
+
+            .header h2 {
+                text-align: center;
+            }
+
+            .progress-container {
+                width: 100%;
+                height: 8px;
+
+                background-color: #ccc;
+            }
+
+            .progress-bar {
+                width: 0%;
+                height: 8px;
+
+                background-color: #04aa6d;
+            }
+
+            .content {
+                margin: 50px auto 0;
+                padding: 100px 0;
+
+                width: 80%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Scroll Indicator</h1>
+            <div class="progress-container">
+                <div class="progress-bar" id="myBar"></div>
+            </div>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet possimus similique maxime tempora veritatis delectus dicta consequatur voluptatibus, explicabo praesentium, esse perferendis repellendus ducimus error adipisci quos soluta autem expedita?</p>
+        </div>
+    </body>
+</html>

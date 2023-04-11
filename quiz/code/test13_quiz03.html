@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script defer src="../js/test13_quiz03.js"></script>
+
+        <style>
+            * {
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            .mainContainer {
+                display: flex;
+                gap: 0.3rem;
+
+                padding: 1rem;
+            }
+            #searchData {
+                width: 18rem;
+            }
+
+            #searchButton {
+                width: 6rem;
+                height: 2rem;
+
+                border: 0;
+                background-color: green;
+                color: #f1f1f1;
+            }
+
+            .resultTable {
+                margin: 2rem 0;
+                padding: 0.1rem;
+                background-color: gainsboro;
+            }
+            .table {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+                padding: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mainContainer">
+            <input type="text" name="searchData" id="searchData">
+            <button type="button" id="searchButton">Search</button>
+        </div>
+
+        <div class="resultTable">
+            <div class="table">
+                <h3>Name</h3>
+                <h3>Country</h3>
+            </div>
+            <div class="resultTableCell"></div>
+        </div>
+
+        <template id="quiz13_03">
+            <style>
+                .tableCell {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+
+                    padding: 0.5rem;
+
+                    font-size: 1.5rem;
+
+                    background-color: #f1f1f1;
+                    border-radius: 0.2rem;
+                }
+            </style>
+            <div class="tableCell"></div>
+        </template>
+    </body>
+</html>

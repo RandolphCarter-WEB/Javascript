@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <button type="button" onclick="MyFunc();">Open window.</button>
+        <div id="div1"></div>
+        <script>
+            function MyFunc() {
+                const mywindow = window.open("", "myWindow", "width=200, height=100");
+                const p = document.createElement("p");
+                const button = document.createElement("button");
+
+                p.textContent = "This is p Tag.";
+                button.setAttribute("type", "button");
+                button.textContent = "Send Data to parent window.";
+                button.addEventListener("click", () => {
+                    mywindow.opener.document.querySelector("#div1").textContent = "This is Text from child page.";
+                });
+
+                mywindow.document.body.append(p);
+                mywindow.document.body.append(button);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button type="button" onclick="showCookie();">Show Cookie</button>
+        <button type="button" onclick="clearOutputCookie();">Clear Cookie</button>
+
+        <div>
+            <code id="cookies"></code>
+        </div>
+
+        <script>
+            document.cookie = "name=kim; Secure";
+            document.cookie = "favorite_food=banana; expires=Thu, 11 Apr 2023 12:00:00 UTC; Secure";
+
+            const cookies = document.querySelector("#cookies");
+
+            function showCookie() {
+                cookies.textContent = "> " + document.cookie;
+            }
+
+            function clearOutputCookie() {
+                cookies.textContent = "";
+            }
+        </script>
+    </body>
+</html>
