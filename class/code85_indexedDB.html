@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            label {
+                display: inline-block;
+                
+                width: 70px;
+            }
+
+            fieldset {
+                margin: 0.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <fieldset>
+            <label for="title">제목</label><input type="text" name="title" id="title">
+            <label for="isbn">ISBN</label><input type="text" name="isbn" id="isbn">
+
+            <br>
+
+            <label for="year">출판년도</label><input type="number" name="year" id="year">
+            <label for="category">분야</label>
+
+            <select name="category" id="category">
+                <option value="문학">문학</option>
+                <option value="경제">경제</option>
+                <option value="기술">기술</option>
+                <option value="시사">시사</option>
+            </select>
+            <button type="button" id="btn1">Insert</button>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <label for="datas">자료 목록</label>
+            <select name="" id="datas"></select>
+            <button type="button" id="btn2">조회</button>
+            <button type="button" id="btn3">삭제</button>
+            <button type="button" id="btn4">전체조회</button>
+        </fieldset>
+
+        <div id="dashboard"></div>
+
+        <script>
+            let bookShelfDB = null;
+
+            function makeBook() {
+                if(bookShelfDB.objectStoreNames.contains("books")) {
+                    bookShelfDB.deleteObjectStore("books");
+                }
+
+                bookShelfDB.createObjectStore("books", {
+                    keyPath:"isbn",
+                    autoIncreament: true
+                });
+            }
+
+            function printDB(db) {
+                console.log("Name >> " + db.name +"\nVersion >> "+ db.version);
+                console.log("ObjectStore >> " + db.objectStoreNames.length);
+
+                Object.keys(db.objectStoreNames).forEach((element,i) => {
+                    console.log("[" + i + "]" + " >> " + db.objectStoreNames[element]);
+                });
+            }
+
+            function printTransaction(tx) {
+                console.log(`[Transaction Info] Print Transaction.`);
+                console.log(`[Transaction Info] Belong DB >> ${tx.db} \n mode >> ${tx.mode}`);
+                console.log(`[Transaction Info] ObjectStore info >> ${tx.objectStoreNames}`);
+                console.log(`[Transaction Info] Print Finish. \n\n`);
+            }
+
+            function printObjStore(os) {
+                console.log(`[ObjectStore info] Print ObjectStore`);
+                console.log(`[ObjectStore info] Name >> ${os.name}`);
+                console.log(`[ObjectStore info] autoIncreament >> ${os.autoIncreament}`);
+                console.log(`[ObjectStore info] KeyPath >> ${os.KeyPath}`);
+                console.log(`[ObjectStore info] Index info >> ${os.indexNames}`);
+                console.log(`[ObjectStore info] Print Finish \n\n`);
+            }
+
+            function openDB() {
+                const openResult = window.indexedDB.open("bookShelf", 3);
+
+                openResult.addEventListener("success", (e) => {
+                    console.log("[SYSTEM] Database Open >> " + e.target.result);
+                    bookShelfDB = e.target.result;
+
+                    // makeBook();
+                    printDB(bookShelfDB);
+                    updateISBNList();
+                });
+
+                openResult.addEventListener("error", () => {
+                    console.log("[SYSTEM] Database Open fail.");
+                });
+
+                openResult.addEventListener("upgradeneeded", (e) => {
+                    console.log("[SYSTEM] Database Upgrade...");
+                    bookShelfDB = e.target.result;
+
+                    makeBook();
+                });
+            }
+
+            function updateISBNList() {
+                const tx = bookShelfDB.transaction(["books"], "readonly");
+                const objStore = tx.objectStore("books");
+                const request = objStore.getAllKeys();
+
+                request.addEventListener("success", () => {
+                    datas.innerHTML = "";
+
+                    for(let i = 0; i < request.result.length; i++) {
+                        datas.innerHTML += `<option>${request.result[i]}</option>`;
+                    }
+
+                    console.log("[Print Option] List update success.");
+                });
+
+                request.addEventListener("error", () => {
+                    console.log("[Print Option] List update fail.");
+                });
+            }
+
+            const button1 = document.querySelector("#btn1");
+            const dashboard = document.querySelector("#dashboard");
+            const isbn = document.querySelector("#isbn");
+            const datas = document.querySelector("#datas");
+
+            button1.addEventListener("click", () => {
+                const data = {
+                    title : document.querySelector("#title").value,
+                    year : document.querySelector("#year").value,
+                    categoty : document.querySelector("#category").value
+                };
+
+                if(isbn.value)data.isbn = Number.parseInt(isbn.value);
+
+                const tx = bookShelfDB.transaction(["books"], "readwrite");
+
+                printTransaction(tx);
+
+                tx.addEventListener("complete", () => {
+                    console.log("[Transaction] Quit transaction");
+                });
+
+                tx.addEventListener("abort", () => {
+                    console.log("[Transaction] Cancer transaction");
+                });
+
+                tx.addEventListener("error", () => {
+                    console.log("[Transaction] Fai  l transaction");
+                });
+
+                const objStore = tx.objectStore("books");
+                printObjStore(objStore);
+
+                const request = objStore.put(data);
+
+                request.addEventListener("success", () => {
+                    console.log(`[Data Input] Success input data. >> ${JSON.stringify(data)}`);
+
+                    updateISBNList();
+                });
+
+                request.addEventListener("error", () => {
+                    console.log(`[Data Input] Fail input data.`);
+                });
+            });
+
+            openDB();
+
+            const button2 = document.querySelector("#btn2");
+
+            button2.addEventListener("click", () => {
+                const tx = bookShelfDB.transaction(["books"], "readonly");
+                const objStore = tx.objectStore("books").getAll();
+
+                objStore.addEventListener("success", () => {
+                    const elementNum = Object.keys(objStore.result).filter((index) => objStore.result[index].isbn == datas.value);
+                    console.log(objStore.result[elementNum]);
+                });
+
+                objStore.addEventListener("error", () => {
+                    console.log("[Data Search] Fail to search DB data.");
+                });
+            });
+
+            const button3 = document.querySelector("#btn3");
+
+            button3.addEventListener("click", () => {
+                const tx = bookShelfDB.transaction(["books"], "readwrite");
+                const objStore = tx.objectStore("books");
+                const request = objStore.delete(Number.parseInt(datas.value));
+
+                request.addEventListener("success", () => {
+                    updateISBNList();
+                    console.log("[Data Remove] Success to remove DB data.");
+                });
+
+                request.addEventListener("error", () => {
+                    console.log("[Data Remove] Fail to remove DB data.");
+                });
+            });
+
+            const button4 = document.querySelector("#btn4");
+
+            button4.addEventListener("click", () => {
+                const tx = bookShelfDB.transaction(["books"], "readonly");
+                const objStore = tx.objectStore("books").getAll();
+
+                objStore.addEventListener("success", () => {
+                    Object.keys(objStore.result).forEach((Element) => {
+                        console.log(objStore.result[Element]);
+                    });
+                });
+
+                objStore.addEventListener("error", () => {
+                    console.log("[Data Search] Fail to search All DB data.");
+                });
+            });
+            
+        </script>
+    </body>
+</html>

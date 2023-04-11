@@ -55,7 +55,8 @@ class CustomTable extends HTMLElement {
 }
 
 customElements.define("table-cell", CustomTable);
-  
+
+//TODO: refresh에 대한 정의가 다시 이뤄져야됨.
 for (let i = 0; i < TableCell.length; i++) {
     const customTable = document.createElement("table-cell");
     customTable.Name = TableCell[i].name;
