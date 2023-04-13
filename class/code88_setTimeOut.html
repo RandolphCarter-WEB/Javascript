@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="text" name="inp1" id="inp1">
+        <button id="btn1">Button</button>
+        <button id="btn2">Button</button>
+        <button id="btn3">Button</button>
+        <button id="btn4">Button</button>
+
+        <script>
+            let count_inter = 0;
+            let count_strin = 0;
+
+            const inp1 = document.querySelector("#inp1");
+
+            const inter1 = setInterval(function() {
+                count_inter++;
+                console.log(`[Count >> ${count_inter}] inter Hi!`);
+            }, 3000);
+
+            const timeOut = setTimeout(function() {
+                count_strin = 0;
+                console.log(`[Count >> ${count_strin}] TimeOut Hi!`)
+            }, 5000);
+
+            document.querySelector("#btn1").addEventListener("click", function() {
+                clearInterval(inter1);
+            });
+
+            document.querySelector("#btn2").addEventListener("click", function() {
+                clearTimeout(timeOut);
+            });
+
+            document.querySelector("#btn3").addEventListener("click", function() {
+                inp1.focus();
+            });
+            document.querySelector("#btn4").addEventListener("click", function() {
+                inp1.blur();
+            });
+        </script>
+    </body>
+</html>

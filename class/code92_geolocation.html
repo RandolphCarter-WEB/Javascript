@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <dl>
+            <dt>위도</dt>
+            <dd id="latitude"></dd>
+            <dt>경도</dt>
+            <dd id="longitude"></dd>
+        </dl>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                window.navigator.geolocation.getCurrentPosition(printLocation);
+            });
+
+            function printLocation(event) {
+                latitude.textContent = event.coords.latitude;
+                longitude.textContent = event.coords.longitude;
+            }
+        </script>
+    </body>
+</html>

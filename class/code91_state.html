@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <section>
+            <h2>Push State</h2>
+            <button id="btn1" type="button">PushState</button>
+            <button id="btn2" type="button">PushState</button>
+            <button id="btn3" type="button">PushState</button>
+        </section>
+
+        <section>
+            <h2>Replace State</h2>
+            <button id="replaceStateBtn" type="button">ReplaceState</button>
+        </section>
+
+        <section>
+            <h2>History State</h2>
+            <span id="state"></span>
+        </section>
+
+        <script>
+            function currentHistoryState() {
+                state.innerHTML = JSON.stringify(history.state);
+            }
+            currentHistoryState();
+
+            btn1.addEventListener("click", () => {
+                history.pushState({data:"pushState01"}, "", "/push-state01");
+                currentHistoryState();
+            });
+            btn2.addEventListener("click", () => {
+                history.pushState({data:"pushState02"}, "", "/push-state02");
+                currentHistoryState();
+            });
+            btn3.addEventListener("click", () => {
+                history.pushState({data:"pushState03"}, "", "/push-state03");
+                currentHistoryState();
+            });
+            replaceStateBtn.addEventListener("click",() => {
+                history.replaceState({data: "replaceState"}, "", "/replace-state");
+                currentHistoryState();
+            });
+
+            window.addEventListener("popstate", () => {
+                currentHistoryState();
+            });
+        </script>
+    </body>
+</html>

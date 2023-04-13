@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            label {
+                display: inline-block;
+                width: 70px;
+            }
+
+            .smallInput {
+                width: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <fieldset id="search">
+            <legend>정보 조회</legend>
+
+            <button type="button" id="getAllB">전체 조회</button>
+            <br>
+
+            <input type="number" name="" id="lowerISBN" class="smallInput" placeholder="최소" min="0"> ~
+            <input type="number" name="" id="upperISBN" class="smallInput" placeholder="최대" max="null">
+            <button type="button" id="getByIsbnRangeB">ISBN 범위 조회</button>
+            <br>
+            
+            <input type="text" id="startChar" class="smallInput" placeholder="시작">부터
+            <input type="text" id="endChar" class="smallInput" placeholder="종료">까지의 제목
+            <button type="button" id="titleIdxB">타이틀 인덱스</button>
+            <br>
+
+            <input type="text" id="fromYear" class="smallInput" placeholder="년도">부터
+            <input type="text" id="toYear" class="smallInput" placeholder="년도">까지 출판된 도서
+            
+            (정렬 : 
+            <input type="radio" name="orderBy" id="next" checked="checked"><label for="next">오름차순</label>
+            <input type="radio" name="orderBy" id="prev"><label for="prev">내림차순</label>
+            )
+
+            <button type="button" id="yearIdxB">출판년도 인덱스</button>
+        </fieldset>
+
+        <div id="dashboard"></div>
+
+        <script>
+            let BookShelfDB = null;
+
+            function initDefaultData() {
+                const tx = BookShelfDB.transaction(["books"], "readwrite");
+                const objStore = tx.objectStore("books");
+
+                const UppbookNumInput = document.querySelector("#upperISBN");
+
+                objStore.put({title:"HTML5", year:2016, category:"기술"});
+                objStore.put({title:"CSS3", year:2015, category:"기술"});
+                objStore.put({title:"JavaScript", year:2014, category:"기술"});
+                objStore.put({title:"JAVA", year:2013, category:"기술"});
+                objStore.put({title:"Servlet/JSP", year:2012, category:"기술"});
+                objStore.put({title:"JQuery", year:2011, category:"기술"});
+                objStore.put({title:"SQL", year:2010, category:"기술"});
+                objStore.put({title:"Spring", year:2009, category:"기술"});
+                objStore.put({title:"MyBatis", year:2008, category:"기술"});
+                objStore.put({title:"XML", year:2007, category:"기술"});
+                objStore.put({title:"신 1권", year:2018, category:"문학"});
+                objStore.put({title:"신 2권", year:2018, category:"문학"});
+                objStore.put({title:"신 3권", year:2018, category:"문학"});
+                objStore.put({title:"신 4권", year:2018, category:"문학"});
+                objStore.put({title:"신 5권", year:2018, category:"문학"});
+
+                const request = objStore.getAll();
+                
+                request.addEventListener("success", () => {
+                    UppbookNumInput.max = request.result.length;
+                });
+            }
+
+            function printIndex(idx) {
+                console.log("[SYSTEM] Index Info.");
+                console.log(`[SYSTEM] Name >> ${idx.name}, Belong ObjectStore >> ${idx.objectStore}`);
+                console.log(`[SYSTEM] KeyPath >> ${idx.keyPath}, Unique >> ${idx.unique}`);
+            }
+
+            function openDB() {
+                indexedDB.deleteDatabase("bookShelf");
+                const openDBResult = window.indexedDB.open("bookShelf",1);
+
+                openDBResult.addEventListener("success", (e)=> {
+                    BookShelfDB = e.target.result;
+                    initDefaultData();
+                });
+
+                openDBResult.addEventListener("upgradeneeded", (e)=> {
+                    BookShelfDB = e.target.result;
+                    if(BookShelfDB.objectStoreNames.contains("books")) {
+                        BookShelfDB.deleteObjectStore("books");
+                    }
+
+                    const objStore = BookShelfDB.createObjectStore("books", {
+                        keyPath : "isbn",
+                        autoIncrement : true
+                    });
+
+                    objStore.createIndex("yearIdx", "year", {unique: false});
+                    objStore.createIndex("titleIdx", "title", {unique: false});
+                });
+
+                openDBResult.addEventListener("error", (e) => {
+                    console.dir(e);
+                });
+            }
+
+            openDB();
+
+            //button
+            const getAllDataBtn = document.querySelector("#getAllB");
+            const getRangeDataBtn = document.querySelector("#getByIsbnRangeB");
+            const getTitleDataBtn = document.querySelector("#titleIdxB");
+            const getYearDataBtn = document.querySelector("#yearIdxB");
+
+            const dashboardResult = document.querySelector("#dashboard");
+
+            getAllDataBtn.addEventListener("click", () => {
+                const tx = BookShelfDB.transaction(["books"], "readonly");
+                const objStore = tx.objectStore("books").getAll();
+
+                dashboardResult.innerHTML = "";
+
+                objStore.addEventListener("success", (e) => {
+                    const resultElement = e.target.result;
+                    Object.keys(resultElement).forEach(element => {
+                        dashboardResult.innerHTML += `<p>[ISBN ${resultElement[element].isbn}] Category<${resultElement[element].category}> Title >> ${resultElement[element].title} Year >> ${resultElement[element].year}</p>`
+                    });
+                });
+            });
+
+            getRangeDataBtn.addEventListener("click", () => {
+                const tx = BookShelfDB.transaction(["books"], "readonly");
+
+                const LowbookNumInput = document.querySelector("#lowerISBN");
+                const UppbookNumInput = document.querySelector("#upperISBN");
+
+                let startNum = (LowbookNumInput.value) ? Number.parseInt(LowbookNumInput.value) : Number.parseInt(LowbookNumInput.min);
+                let endNum = (UppbookNumInput.value) ? Number.parseInt(UppbookNumInput.value) : Number.parseInt(UppbookNumInput.max);
+
+                if(startNum > endNum) {
+                    [startNum, endNum] = [endNum, startNum];
+                    LowbookNumInput.value = startNum;
+                    UppbookNumInput.value = endNum;
+                }
+
+                let keyRange = IDBKeyRange.bound(startNum, endNum, false, false);
+
+                const objStore = tx.objectStore("books").getAll(keyRange);
+
+                dashboardResult.innerHTML = "";
+
+                objStore.addEventListener("success", (e) => {
+                    const resultElement = e.target.result;
+
+                    Object.keys(resultElement).forEach(element => {
+                        dashboardResult.innerHTML +=
+                        `<p>[ISBN ${resultElement[element].isbn}]Category<${resultElement[element].category}>
+                            Title >> ${resultElement[element].title}
+                            Year >> ${resultElement[element].year}</p>`
+                    });
+                });
+            });
+
+            getTitleDataBtn.addEventListener("click", () => {
+                const startCharInput = document.querySelector("#startChar");
+                const endCharInput = document.querySelector("#endChar");
+
+                dashboardResult.innerHTML = "";
+                
+                let KeyRange = null;
+                let startValue = startCharInput.value;
+                let endValue = endCharInput.value;
+
+                if(!(startValue || endValue)) {
+                    dashboardResult.innerHTML = "<p>시작 문자와 끝 문자를 입력해주세요.";
+                    return;
+                }
+                else {
+                    if(startValue > endValue) {
+                        [startValue, endValue] = [endValue, startValue];
+                        startCharInput.value = startValue;
+                        endCharInput.value = endValue;
+                    }
+
+                    keyRange = IDBKeyRange.bound(startValue, endValue, false, false);
+                }
+
+                const tx = BookShelfDB.transaction(["books"], "readonly");
+                const objStore = tx.objectStore("books");
+                const titleIdx = objStore.index("titleIdx");
+                printIndex(titleIdx);
+
+                const request = titleIdx.getAll(keyRange);
+
+                request.addEventListener("success", (e) => {
+                    const resultElement = e.target.result;
+
+                    Object.keys(resultElement).forEach(element => {
+                        dashboardResult.innerHTML +=
+                        `<p>[Title >> ${resultElement[element].title}] Category<${resultElement[element].category}>
+                            Year >> ${resultElement[element].year}
+                            ISBN >> ${resultElement[element].isbn}</p>`
+                    });
+                });
+            });
+
+            getYearDataBtn.addEventListener("click", () => {
+                const startYearInput = document.querySelector("#fromYear");
+                const endYearInput = document.querySelector("#toYear");
+                const prev = document.querySelector("#prev");
+
+                dashboardResult.innerHTML = "";
+
+                let keyRange = null;
+                let startNum = Number.parseInt(startYearInput.value);
+                let endNum = Number.parseInt(endYearInput.value);
+
+                if(!(startNum || endNum)) {
+                    dashboardResult.innerHTML = "<p>시작 숫자와 끝 숫자를 입력해주세요.</p>";
+                    return;
+                }
+                else {
+                    if(startNum > endNum) {
+                        [startNum, endNum] = [endNum, startNum];
+                        startYearInput.value = startNum;
+                        endYearInput.value = endNum;
+                    }
+
+                    keyRange = IDBKeyRange.bound(startNum, endNum, false, false);
+                }
+
+                const tx = BookShelfDB.transaction(["books"], "readonly");
+                const objStore = tx.objectStore("books");
+                const yearIdx = objStore.index("yearIdx");
+                const dir = prev.checked ? "prev" : "next";
+                const request = yearIdx.openCursor(keyRange, dir);
+
+                request.addEventListener("success", (e) => {
+                    const resultElement = e.target.result;
+                    
+                    if(resultElement) {
+                        dashboardResult.innerHTML += `<p>${JSON.stringify(resultElement.value)}</p>`;
+                        resultElement.continue();
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

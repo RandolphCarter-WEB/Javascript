@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button type="button" id="btn1">Button</button>
+        <button type="button" id="btn2">Button</button>
+        <button type="button" id="btn3">Button</button>
+        <button type="button" id="btn4">Button</button>
+
+        <script>
+            console.log(location.toString());
+            console.log(location.href);
+            console.log(location.protocol);
+            console.log(location.host);
+            console.log(location.post);
+            console.log(location.pathname);
+            console.log(location.search);
+            console.log(location.hash);
+
+            btn2.addEventListener("click", () => {
+                location.href = "https://www.naver.com";
+            });
+
+            btn3.addEventListener("click", () => {
+                // location.href = "http://127.0.0.1:5500/javascript/class/code89_location.html#top@id=foo&pw=123123";
+                location.href = "http://127.0.0.1:5500/javascript/class/code89_location.html#top";
+            });
+
+            btn4.addEventListener("click", () => {
+                location.pathname = "/javascript/class/code88_setTimeOut.html";
+            });
+        </script>
+    </body>
+</html>

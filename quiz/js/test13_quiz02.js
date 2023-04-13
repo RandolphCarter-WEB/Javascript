@@ -86,4 +86,3 @@ for (let i = 0; i < User.length; i++) {
     document.querySelector(".items").appendChild(customDevel);
     customDevel.setElement();
 }
-  
