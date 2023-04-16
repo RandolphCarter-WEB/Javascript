@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script defer src="../js/test14_quiz01.js"></script>
+    </head>
+    <body>
+        <opener-temp></opener-temp>
+
+        <template id="quiz14_01_opener">
+            <div class="openerPop">
+                <h1>OPENER</h1>
+
+                <button type="button" id="openPopBtn">Open PopUp</button>
+                <br>
+
+                전달할 값 >> 
+                <input type="text" name="inputSentData" id="sendDataInput">
+                <button type="button" id="sendDataBtn">Send</button>
+                <br>
+
+                전달받은 값 >> 
+                <input type="text" name="inputGetData" id="getDataInput">
+                <button type="button" id="getDataBtn">Get</button>
+            </div>
+        </template>
+
+        <template id="quiz14_01_popup">
+            <div class="popUp">
+                <h1>POPUP</h1>
+
+                전달받은 값 >> 
+                <input type="text" name="inputGetData" id="getDataInput">
+                <br>
+                
+                전달할 값 >> 
+                <input type="text" name="inputSentData" id="sendDataInput">
+                <br>
+                
+                <button type="button" id="closePopBtn">Close This PopUp</button>
+            </div>
+        </template>
+    </body>
+</html>
