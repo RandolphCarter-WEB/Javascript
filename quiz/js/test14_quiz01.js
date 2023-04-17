@@ -7,7 +7,8 @@ class State {
         this.$state = { ...this.$state, ...newState };
     }
 }
-const stateQuiz = new State;
+
+export const stateQuiz = new State;
   
 class CustomOpener extends HTMLElement {
     constructor() {
@@ -35,12 +36,12 @@ class CustomOpener extends HTMLElement {
             : "There is no Data.";
   
             popup.document.body.append(popUpTemp);
-  
-            const popupRoot = popup.document.body.querySelector("popup-temp");
-            const closePopupBtn = popupRoot.shadowRoot.querySelector("#closePopBtn");
-            closePopupBtn.addEventListener("click", () => {
-                popup.close();
-            });
+
+            // const popupRoot = popup.document.body.querySelector("popup-temp");
+            // const closePopupBtn = popupRoot.shadowRoot.querySelector("#closePopBtn");
+            // closePopupBtn.addEventListener("click", () => {
+            //     popup.close();
+            // });
         });
   
         this.sendDataBtn.addEventListener("click", () => {
@@ -63,6 +64,8 @@ class CustomPopup extends HTMLElement {
   
         this.getDataInput = this.shadowRoot.querySelector("#getDataInput");
         this.sendDataInput = this.shadowRoot.querySelector("#sendDataInput");
+
+        this.closePopBtn = this.shadowRoot.querySelector("#closePopBtn");
   
         this.openState = {};
     }
@@ -71,6 +74,10 @@ class CustomPopup extends HTMLElement {
         this.sendDataInput.addEventListener("input", (e) => {
             this.openState["popup"] = e.target.value ? e.target.value : "There is no Data.";
             stateQuiz.setState(this.openState);
+        });
+
+        this.closePopBtn.addEventListener("click", () => {
+            console.log();
         });
     }
 }

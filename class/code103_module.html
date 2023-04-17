@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script type="module">
+            import { a } from "./code103_module01.js"
+            import * as funcList from "./code103_module02.js"
+            import { funcA, funcB } from "./code103_module03.js";
+            import {default as ff2, ff1 } from "./code103_module04.js";
+
+            console.log(a);
+
+            funcList.Test();
+            funcList.Text();
+
+            funcA();
+            funcB();
+
+            ff1();
+            ff2();
+        </script>
+        
+    </body>
+</html>
