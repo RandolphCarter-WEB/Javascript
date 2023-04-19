@@ -1,0 +1,14 @@
+{
+  "name": "class",
+  "version": "1.0.0",
+  "description": "package.json Testfile",
+  "main": "code07_package.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "stonecat",
+  "license": "ISC",
+  "dependencies": {
+    "lower-case": "2.0.2"
+  }
+}

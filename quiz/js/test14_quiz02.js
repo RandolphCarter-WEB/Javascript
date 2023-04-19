@@ -4,11 +4,11 @@ class CustomClickerDisplay extends HTMLElement {
         this.attachShadow({mode : "open"}).append(quiz14_02.content.cloneNode(true));
 
         this.CurrentCoin = localStorage.getItem("CurrentCoin") ?
-            Number.parseInt(localStorage.getItem("CurrentCoin"))
-            : 0;
+                        Number.parseInt(localStorage.getItem("CurrentCoin"))
+                        : 0;
         this.upgradeCount = localStorage.getItem("Upgrade") ?
-        Number.parseInt(localStorage.getItem("Upgrade"))
-            : 0;
+                        Number.parseInt(localStorage.getItem("Upgrade"))
+                        : 0;
 
         this.addCoinBtn = this.shadowRoot.querySelector("#addCoinBtn");
         this.upgradeCoinBtn = this.shadowRoot.querySelector("#upgradeCoinBtn");

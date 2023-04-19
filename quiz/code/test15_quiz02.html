@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            .mainContainer {
+                display: flex;
+                flex-direction: column;
+
+                align-items: center;
+                justify-content: center;
+            }
+
+            #timer {
+                font-size: 6.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mainContainer">
+            <div class="timerUI">
+                <h1 id="timer"></h1>
+            </div>
+
+            <div class="buttonUI">
+                <button type="button" id="timerStartBtn">Start</button>
+                <button type="button" id="timerStopBtn">Stop</button>
+                <button type="button" id="timerResetBtn">Reset</button>
+            </div>
+        </div>
+
+        <script>
+            const MAX_TIME = 60;
+            let secTime = 00;
+            let minTime = 00;
+            let hourTime = 00;
+
+            let timerInterval = null;
+            let timerONOFF = 0;
+
+            const printTimer = document.querySelector("#timer");
+            const timerStartBtn = document.querySelector("#timerStartBtn");
+            const timerStopBtn = document.querySelector("#timerStopBtn");
+            const timerResetBtn = document.querySelector("#timerResetBtn");
+
+            function timer() {
+                printTimer.innerHTML = `${hourTime} : ${minTime} : ${secTime}`;
+
+                if(secTime == MAX_TIME) { sectime = 00; minTime += 1; }
+                if(minTime == MAX_TIME) { minTime = 00; hourTime += 1; }
+
+                secTime++;
+            }
+
+            timerStartBtn.addEventListener("click", () => {
+                if (timerONOFF === 0) {
+                    timerInterval = setInterval(() => {timer()}, 1000);
+                    timerONOFF = 1;
+                } else {
+                    clearInterval(timerInterval);
+                    timerONOFF = 0;
+                }
+            });
+
+            timerStopBtn.addEventListener("click", () => {
+                if (timerONOFF === 1) {
+                    clearInterval(timerInterval);
+                    timerONOFF = 0;
+                } else {
+                    timerInterval = setInterval(() => {timer()}, 1000);
+                    timerONOFF = 1;
+                }
+            });
+
+            timerResetBtn.addEventListener("click", () => {
+                clearInterval(timerInterval);
+
+                secTime = 00;
+                minTime = 00;
+                hourTime = 00;
+                timerONOFF = 0;
+                timerInterval = null
+            });
+        </script>
+    </body>
+</html>

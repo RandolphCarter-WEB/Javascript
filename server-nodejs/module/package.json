@@ -1,0 +1,18 @@
+{
+  "name": "wepack01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index01.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "stonecat",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.35.1",
+    "webpack-cli": "^4.6.0"
+  },
+  "dependencies": {
+    "sort-array": "^4.1.4"
+  }
+}

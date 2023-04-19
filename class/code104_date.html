@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="mainContainer">
+            <h1 id="nowDate"></h1>
+            <h3 id="nowTime"></h3>
+            <h5 id="getTime"></h5>
+
+            <script defer>
+                const passDate = new Date("2023-04-25T13:30:05");
+                nowDate.textContent = passDate.toLocaleDateString(); 
+                nowTime.textContent = passDate.toLocaleTimeString();
+
+                const currentDate = new Date();
+                getTime.textContent = currentDate.getTime();
+            </script>
+        </div>
+    </body>
+</html>

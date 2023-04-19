@@ -1,6 +1,6 @@
 class State {
     constructor() {
-        this.$state = {};
+        this.$state = {opener: "", popup: ""};
     }
 
     setState(newState) {
@@ -14,4 +14,4 @@ class State {
 }
 
 const stateInstance = new State();
-export default stateInstance.setState
+export default stateInstance
