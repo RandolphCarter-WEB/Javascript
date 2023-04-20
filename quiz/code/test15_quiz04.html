@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="list">
+            <ul>
+                <li onclick="showDetails(this)" id="gitanjali" data-book-author="Rabinda Nath Tagore">Gitanjali</li>
+                <li onclick="showDetails(this)" id="conquest_of_self" data-book-author="Mahatama Gandhi">Conquest of self</li>
+                <li onclick="showDetails(this)" id="broken_wings" data-book-author="Sarojini Naidu">Broken Wings</li>
+            </ul>
+        </div>
+        <div id="result"></div>
+
+        <script>
+            const result = document.querySelector("#result");
+            const list = document.querySelectorAll(".list ul li");
+
+            function showDetails(target) {
+                const h1 = document.createElement("h2");
+                const p = document.createElement("p");
+                result.innerHTML = null;
+
+                h1.innerHTML = `${location.host}'s MSG`;
+                p.innerHTML = `
+                    ${target.innerHTML} is written by ${target.dataset.bookAuthor}`;
+
+                result.append(h1, p);
+            }
+
+            list.addEventListener("click", (e) => {
+                showDetails(e.target);
+            })
+        </script>
+    </body>
+</html>

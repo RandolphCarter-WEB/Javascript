@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="itemsList">
+            <h1>Order Coffee</h1>
+            <div class="itemsBtn">
+                <button type="button" id="iceAmericano" data-price="4100">Ice Americano</button>
+                <button type="button" id="cafeRatte" data-price="5000">Cafe Ratte</button>
+                <button type="button" id="vanillaRatte" data-price="5500">Vanilla Ratte</button>
+            </div>
+        </div>
+
+        <div class="orderResult">
+            <h1>Your Order</h1>
+            <p> <span id="item"></span> : <span id="price"></span> won</p>
+        </div>
+
+        <script>
+            const btnList = document.querySelectorAll(".itemsBtn button");
+            const resultItem = document.querySelector("#item");
+            const resultPrice = document.querySelector("#price");
+
+            function printResult(target) {
+                resultItem.innerHTML = target.innerHTML;
+                resultPrice.innerHTML = target.dataset.price;
+            }
+
+            Array.from(btnList).forEach((Btn) => {
+                Btn.addEventListener("click", (e) => {
+                printResult(e.target);
+            })});
+        </script>
+    </body>
+</html>

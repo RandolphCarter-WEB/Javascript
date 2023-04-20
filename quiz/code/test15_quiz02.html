@@ -48,11 +48,10 @@
             const timerResetBtn = document.querySelector("#timerResetBtn");
 
             function timer() {
-                printTimer.innerHTML = `${hourTime} : ${minTime} : ${secTime}`;
-
                 if(secTime == MAX_TIME) { sectime = 00; minTime += 1; }
                 if(minTime == MAX_TIME) { minTime = 00; hourTime += 1; }
-
+                
+                printTimer.innerHTML = `${hourTime} : ${minTime} : ${secTime}`;
                 secTime++;
             }
 
