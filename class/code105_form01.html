@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <select name="" id="mySelect" onchange="myFunction01()">
+            <option value="Audi">Audi</option>
+            <option value="BMW">BMW</option>
+            <option value="Mercedes">Mercedes</option>
+            <option value="Porscher">Porscher</option>
+        </select>
+        <br>
+        <div id="demo"></div>
+
+        <!-- uppercase: <input type="text" name="" id="fname" onchange="myFunction02()"> -->
+        uppercase: <input type="text" name="" id="fname" oninput="myFunction02()">
+
+        <script>
+            function myFunction01() {
+                let x = document.querySelector("#mySelect").value;
+                demo.textContent = `Your Chose >> ${x}`;
+            }
+
+            function myFunction02() {
+                fname.value = fname.value.toUpperCase();
+            }
+        </script>
+    </body>
+</html>

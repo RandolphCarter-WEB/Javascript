@@ -13,9 +13,7 @@ export const stateQuiz = new State;
 class CustomOpener extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({ mode: "open" }).append(
-            quiz14_01_opener.content.cloneNode(true)
-        );
+        this.attachShadow({ mode: "open" }).append(quiz14_01_opener.content.cloneNode(true));
         this.openPUBtn = this.shadowRoot.querySelector("#openPopBtn");
         this.sendDataBtn = this.shadowRoot.querySelector("#sendDataBtn");
         this.SendDataInput = this.shadowRoot.querySelector("#sendDataInput");
