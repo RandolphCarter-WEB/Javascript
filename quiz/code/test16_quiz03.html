@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="text" name="copyText" id="copyText">
+        <button type="button" id="copyBtn">COPY</button>
+
+        <script>
+            copyBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(copyText.value).then(() => {
+                    navigator.clipboard.readText().then((text) => {
+                        alert(`Text copied to clipboard! >> ${text}`);
+                    })
+                }).catch((error) => {
+                    alert('Failed to copy text to clipboard: ' + error.message);
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -26,7 +26,7 @@ function ApplyCss(target_tag, width_value, height_value) {
 
     return target_tag;
 }
-=
+
 function MakeEnviron() {
     const main = document.querySelector("#main_container");
 
