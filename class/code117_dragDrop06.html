@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #dropfile {
+                width: 450px;
+                height: 250px;
+
+                border: 1px solid #000;
+            }
+        </style>
+    </head>
+    <body>
+        <p>PC의 파일을 드롭해 주세요.</p>
+        <div id="dropfile"></div>
+
+        <script>
+            dropfile.addEventListener("dragenter", (e) => { e.preventDefault(); }, false);
+            dropfile.addEventListener("dragover", (e) => { e.preventDefault(); }, false);
+
+            dropfile.addEventListener("drop", (e) => {
+                e.preventDefault();
+
+                const files = e.dataTransfer.files[0] ? e.dataTransfer.files : null;
+                if(files ==  null) return;
+                if(!files.type.match(/^image\//)) return;
+
+                const rd = new FileReader();
+                rd.readAsDataURL(files);
+
+                rd.onload = () => {
+                    const img1 = document.createElement("img");
+                    img1.src = rd.result;
+
+                    dropfile.append(img1);
+                };
+            });
+        </script>
+    </body>
+</html>

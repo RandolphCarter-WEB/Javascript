@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            li {
+                margin: 10px;
+
+                width: 170px;
+
+                text-overflow: clip;
+                list-style: none;
+                float: left;
+            }
+
+            h2 {
+                clear: both;
+            }
+
+            ul {
+                width: 600px;
+                height: 200px;
+
+                border: 1px solid black;
+                background-color: #9c9c9c;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>상품 목록</h1>
+        <ul id="items">
+            <li id="b1">HTML<img src="../img/b1.png" title="Book01"></li>
+            <li id="b2">WEB<img src="../img/b2.png" title="Book01"></li>
+            <li id="b3">JQUERY<img src="../img/b3.png" title="Book01"></li>
+        </ul>
+
+        <h2>장바구니</h2>
+        <ul id="cart"></ul>
+        
+        <script>
+            const lis = document.querySelectorAll("#items > li");
+
+            lis.forEach(Element => {
+                Element.addEventListener("dragstart", (e) => {
+                    e.dataTransfer.addElement(e.currentTarget);
+                }, false);
+            });
+        </script>
+    </body>
+</html>

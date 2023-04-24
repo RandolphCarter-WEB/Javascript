@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            li {
+                margin: 10px;
+
+                list-style: none;
+                float: left;
+            }
+
+            h2 {
+                clear: both;
+            }
+
+            ul {
+                width: 550px;
+                height: 200px;
+
+                border: 1px solid black;
+                background-color: #9c9c9c;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>상품 목록</h1>
+        <ul id="items">
+            <li><img src="../img/b1.png" alt="" id="b1" name="b1" title="Book01"></li>
+            <li><img src="../img/b2.png" alt="" id="b2" name="b2" title="Book01"></li>
+            <li><img src="../img/b3.png" alt="" id="b3" name="b3" title="Book01"></li>
+        </ul>
+
+        <h2>장바구니</h2>
+        <ul id="cart"></ul>
+        
+        <script>
+            const imgList = document.querySelectorAll("#items li img")
+
+            imgList.forEach(Element => {
+                Element.addEventListener("dragstart", (e) => {
+                    e.dataTransfer.setData("src", e.target.src);
+                    e.dataTransfer.setData("title", e.target.title);
+                }, false);
+            });
+
+            cart.addEventListener("dragenter", (e) => { e.preventDefault(); }, false);
+            cart.addEventListener("dragover", (e) => { e.preventDefault(); }, false);
+
+            cart.addEventListener("drop", (e) => {
+                e.preventDefault();
+
+                if(!e.dataTransfer.types.includes("src")) { return; }
+            
+                const img = document.createElement("img");
+                const li = document.createElement("li");
+                
+                img.src = e.dataTransfer.getData("src");
+                img.title = e.dataTransfer.getData("title");
+                li.append(img);
+                cart.append(li);
+            });
+        </script>
+    </body>
+</html>

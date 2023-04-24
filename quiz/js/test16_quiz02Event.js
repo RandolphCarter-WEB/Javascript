@@ -2,7 +2,7 @@ export const searchData = (e, target) => {
     target.innerHTML = "";
 
     const tableCustom = new CustomTable();
-    const searchPattern = new RegExp(`^${e.target.value}`, "i");
+    const searchPattern = new RegExp(`${e.target.value}`, "i");
 
     tableCustom.render(target, searchPattern);
 };
@@ -26,7 +26,7 @@ class CustomTable extends HTMLElement {
                             <td>${element.Id}</td>
                             <td>${element.name}</td>
                         </tr>
-                    `).join("")}
+                    `).join("\n")}
                 </tbody>
             </table>
         `;

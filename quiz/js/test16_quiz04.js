@@ -10,8 +10,8 @@ class UserID extends HTMLElement {
 
     setDefault() {
         this.$state = {
-            ID: ['<p>Input Data</p>', '<p>Input Data</p>'],
-            PW: ['<p>Input Data</p>', '<p>Input Data</p>', '<p>Input Data</p>', '<p>Input Data</p>', '<p>Input Data</p>']
+            ID: [],
+            PW: []
         };
     }
 
@@ -50,9 +50,9 @@ class UserID extends HTMLElement {
             const ID_checkResult =  event.checkID(inputID);
             const PW_checkResult =  event.checkPW(inputPW);
 
-            this.setState({ID : `${ID_checkResult}`, PW : `${PW_checkResult}`});
+            this.setState({ID : ID_checkResult, PW : PW_checkResult});
         });
-    }
+    }  
 
     setState($newState) {
         this.$state = { ...this.$state, ...$newState };
