@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            video {
+                position: absolute;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <video
+                id="video01"
+                src="../videos/video.mp4"
+                width="480" height="272"
+                autoplay="false"
+                muted="muted"></video>
+        </div>
+        <div>
+            <button id="repeatBtn">Repeat</button>
+            <div id="mediaText"></div>
+        </div>
+
+        <script>
+            window.addEventListener("load", () => {
+                window.addEventListener("click", toggleSize, false);
+                window.addEventListener("resize", centering, false);
+
+                centering(video01);
+                video01.style.display = "block";
+            });
+
+            repeatBtn.addEventListener("click", () => {
+                video01.loop = video01.loop ? false : true;
+                mediaText.textContent = video01.loop ? `Repeat Mode ON` : `Repeat Mode OFF`;
+            });
+
+            function centering() {
+                $target = video01;
+
+                let windowWidth = document.documentElement.clientWidth;
+                let windwoHeight = document.documentElement.clientHeight;
+
+                $target.style.left = (windowWidth - $target.width)/2 + "px";
+                $target.style.top = (windwoHeight - $target.height)/2 + "px";
+            }
+
+            function toggleSize() {
+                $target = video01;
+
+                if ($target.height == $target.videoHeight) {
+                    $target.width = document.documentElement.clientWidth;
+                    $target.height = document.documentElement.clientHeight;
+
+                    $target.style.left = "0px";
+                    $target.style.top = "0px";
+
+                } else {
+                    $target.width = $target.videoWidth;
+                    $target.height = $target.videoHeight;
+
+                    centering();
+                }
+            }
+        </script>
+    </body>
+</html>

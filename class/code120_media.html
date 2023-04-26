@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script>
+            window.addEventListener("load", () => {
+                function playBackToggle () {
+                    video01.paused ? video01.play() : video01.pause();
+                }
+
+                video01.addEventListener("click", playBackToggle, false);
+                selectVideo.addEventListener("change", setVideo, false);
+            });
+
+            function setVideo() {
+                if(!selectVideo.value.match(/^play0[1-3]$/)) return;
+
+                if(video01.canPlayType("video/mp4")) {
+                    video01.src = `${selectVideo.options.dataset.srcLocation}`;
+                } else if (video01.canPlayType("video/webm")) {
+                    printCommand.textContent = `Cannot play webm file.`;
+                } else if (cideo01.canPlayType("video/ogg")) {
+                    printCommand.textContent = `Cannot play ogg file.`;
+                } else { return; }
+
+                video01.load();
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <p>Choose Video and Show</p>
+            <select name="list" id="selectVideo">
+                <option value="default">default</option>
+                <option value="play01" data-src-location="../videos/video1.mp4">video01</option>
+                <option value="play02" data-src-location="../videos/video2.mp4">video02</option>
+                <option value="play03" data-src-location="../videos/video3.mp4">video03</option>
+            </select>
+        </div>
+
+        <br>
+        <div>
+            <video
+                id="video01"
+                poster="../videos/poster.png"
+                width="480" height="272">
+            </video>
+        </div>
+
+        <div class="printCommad"></div>
+    </body>
+</html>

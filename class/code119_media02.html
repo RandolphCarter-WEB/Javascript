@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            window.addEventListener("load", () => {
+                if(!window.Audio) return;
+                const audio1 = new Audio;
+
+                if(audio1.canPlayType("audio/mpeg")) {
+                    audio1.src = "../videos/audio.mp3";
+                } else if (audio1.canPlayType("audio/ogg")) {
+                    audio1.src = "../videos/audio.ogg"
+                }
+
+                playVideo.addEventListener("click", () => { audio1.play(); })
+                pauseVideo.addEventListener("click", () => { audio1.pause(); })
+                isPause.addEventListener("click", () => {
+                    if(audio1.paused) {
+                        printPause.textContent = "this audio is pause.";
+                    } else {
+                        printPause.textContent = "this audio is not pause.";
+                    }
+                });
+                isEnded.addEventListener("click", () => {
+                    if(audio1.ended) {
+                        printEnd.textContent = "this is end.";
+                    } else {
+                        printEnd.textContent = "this is not end.";
+                    }
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <button id="playVideo">Play!</button>
+        </div>
+
+        <div>
+            <button id="pauseVideo">Pause</button>
+        </div>
+
+        <div>
+            <button id="isPause">is Pause?</button>
+        </div>
+
+        <div>
+            <button id="isEnded">is Ended?</button>
+        </div>
+
+        <p id="printPause"></p>
+        <p id="printEnd"></p>
+    </body>
+</html>
