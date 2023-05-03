@@ -95,7 +95,7 @@ class CustomElementDiv extends HTMLElement {
         });
 
         this.button_refresh.addEventListener("click", () => {
-            //TODO: Make refresh
+            
         });
 
     }
