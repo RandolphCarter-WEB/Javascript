@@ -14,7 +14,7 @@ export default class ItemsList extends Component {
         return `
             <input id="stateA" value="${a}" size="5" />
             <input id="stateB" value="${b}" size="5" />
-            <p>a + b = ${a + b}</p>
+            <p>${a} + ${b} = ${a + b}</p>
         `;
     }
 
