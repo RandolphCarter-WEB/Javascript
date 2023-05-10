@@ -1,4 +1,4 @@
-import { observable, observe } from "./observer.js"
+import { observable, observe } from "./Observer.js"
 
 export const createStore = (reducer) => {
     const state = observable(reducer());

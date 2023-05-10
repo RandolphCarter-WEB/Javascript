@@ -1,4 +1,4 @@
-import { observable, observe } from "./observer.js"
+import { observable, observe } from "./Observer.js";
 
 export const createStore = (reducer) => {
     const state = observable(reducer());
@@ -6,14 +6,14 @@ export const createStore = (reducer) => {
     const frozenState = {};
     Object.keys(state).forEach(key => {
         Object.defineProperty(frozenState, key, {
-            get: () => state[key],
-        })
+            get : () => state[key],
+        });
     });
 
     const dispatch = (action) => {
         const newState = reducer(state, action);
 
-        for (const [key, value] of Object.entries(newState)) {
+        for(const [key, value] of Object.entries(newState)) {
             if(!state[key]) continue;
             state[key] = value;
         }
@@ -21,5 +21,5 @@ export const createStore = (reducer) => {
 
     const getState = () => frozenState;
 
-    return {getState, dispatch}
+    return { dispatch, getState }
 }

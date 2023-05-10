@@ -1,6 +1,6 @@
 import Component from "../core/Component.js";
 
-export default class ItemsList extends Component {
+export default class ItemsPlusList extends Component {
     initState() {
         return {
             a: 10,
@@ -8,12 +8,12 @@ export default class ItemsList extends Component {
         };
     }
 
-    template () {
+    template() {
         const { a, b } = this.state;
 
         return `
-            <input id="stateA" value="${a}" size="5" />
-            <input id="stateB" value="${b}" size="5" />
+            <input id="plusA" value="${a}" size="5" />
+            <input id="plusB" value="${b}" size="5" />
             <p>${a} + ${b} = ${a + b}</p>
         `;
     }
@@ -21,11 +21,11 @@ export default class ItemsList extends Component {
     setEvent() {
         const { $target, state } = this;
 
-        $target.querySelector("#stateA").addEventListener("change", ({ target }) => {
+        $target.querySelector("#plusA").addEventListener("change", ({ target }) => {
             state.a = Number(target.value);
         });
 
-        $target.querySelector("#stateB").addEventListener("change", ({ target }) => {
+        $target.querySelector("#plusB").addEventListener("change", ({ target }) => {
             state.b = Number(target.value);
         });
     }
