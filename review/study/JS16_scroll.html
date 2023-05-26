@@ -1,0 +1,46 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <section class="hero">
+            <h1>Scroll Down</h1>
+        </section>
+        <nav>
+            <a href="https://javascript-200.com">javaScript 200</a>
+        </nav>
+        <section class="article">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corporis deleniti distinctio dolores fuga harum ipsam maiores molestias nostrum odit porro, quaerat quasi qui recusandae repellendus reprehenderit sed temporibus vero?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corporis deleniti distinctio dolores fuga harum ipsam maiores molestias nostrum odit porro, quaerat quasi qui recusandae repellendus reprehenderit sed temporibus vero?</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corporis deleniti distinctio dolores fuga harum ipsam maiores molestias nostrum odit porro, quaerat quasi qui recusandae repellendus reprehenderit sed temporibus vero?</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corporis deleniti distinctio dolores fuga harum ipsam maiores molestias nostrum odit porro, quaerat quasi qui recusandae repellendus reprehenderit sed temporibus vero?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corporis deleniti distinctio dolores fuga harum ipsam maiores molestias nostrum odit porro, quaerat quasi qui recusandae repellendus reprehenderit sed temporibus vero?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corporis deleniti distinctio dolores fuga harum ipsam maiores molestias nostrum odit porro, quaerat quasi qui recusandae repellendus reprehenderit sed temporibus vero?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corporis deleniti distinctio dolores fuga harum ipsam maiores molestias nostrum odit porro, quaerat quasi qui recusandae repellendus reprehenderit sed temporibus vero?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corporis deleniti distinctio dolores fuga harum ipsam maiores molestias nostrum odit porro, quaerat quasi qui recusandae repellendus reprehenderit sed temporibus vero?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corporis deleniti distinctio dolores fuga harum ipsam maiores molestias nostrum odit porro, quaerat quasi qui recusandae repellendus reprehenderit sed temporibus vero?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corporis deleniti distinctio dolores fuga harum ipsam maiores molestias nostrum odit porro, quaerat quasi qui recusandae repellendus reprehenderit sed temporibus vero?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corporis deleniti distinctio dolores fuga harum ipsam maiores molestias nostrum odit porro, quaerat quasi qui recusandae repellendus reprehenderit sed temporibus vero?</p>
+
+
+
+
+        </section>
+
+        <script>
+            const nav = document.querySelector("nav");
+            const navTopOffset = nav.offsetTop;
+
+            window.addEventListener("scroll", () => {
+                if (window.pageYOffset >= navTopOffset) {
+                    nav.style.position = "fixed";
+                    nav.style.top = 0;
+                    nav.style.left = 0;
+                    nav.style.right = 0;
+                } else {
+                    nav.style.position = "";
+                    nav.style.top = "";
+                }
+            })
+        </script>
+    </body>
+</html>

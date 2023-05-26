@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h2>To do</h2>
+        <ul id="todoList">
+            <li>Study
+                <button class="remove-button">X</button>
+            </li>
+            <li>buy Something
+                <button class="remove-button">X</button>
+            </li>
+            <li>Homework
+                <button class="remove-button">X</button>
+            </li>
+        </ul>
+
+        <script>
+            document.querySelector("#todoList").addEventListener("click", ({ target }) => {
+                if(target.className.indexOf("remove-button") < 0)  return;
+
+                const li = target.closest("li");
+                console.log(`${li.innerText} removed`);
+                li.remove();
+            })
+        </script>
+    </body>
+</html>

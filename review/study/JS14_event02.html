@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <div>Product Info : laptop</div>
+        <button id="orderBtn">Order</button>
+
+        <script>
+            function buildAlert(title, msg) {
+                const alert = document.createElement("div");
+                const id = Math.ceil(Math.random() * 10000);
+
+                alert.className = "alert";
+                alert.innerHTML = `
+                    <span class="close">&times;</span>
+                    <h3>${title}</h3>
+                    <p>${msg}</p>`;
+
+                alert.id = id;
+                alert.querySelector(".close").addEventListener("click", () => {
+                    const closeEvt = new CustomEvent("close", {
+                        bubbles : true,
+                        detail : {id, msg}
+                    });
+                    alert.dispatchEvent(closeEvt);
+                    alert.remove();
+                });
+
+                document.body.prepend(alert);
+                return alert;
+            }
+
+            document.querySelector("#orderBtn").addEventListener("click", () => {
+                const alertEl = buildAlert("Error", "Plz do login");
+                alertEl.addEventListener("click", (e) => {
+                    console.log(e.detail);
+                    console.log("close Error window");
+                });
+            });
+        </script>
+    </body>
+</html>
