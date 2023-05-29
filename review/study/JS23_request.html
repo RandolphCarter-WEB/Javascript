@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div id="user"></div>
+
+        <script>
+            function httpGET(url, success, error) {
+                const req = new XMLHttpRequest();
+                req.onload = () => {
+                    if(req.status >= 200 && req.status < 300) {
+                        success(req.response);
+                    } else {
+                        error(new Error(req.statusText));
+                    }
+                }
+
+                req.onerror = error;
+                req.open("GET", url);
+                req.setRequestHeader("Accept", "application/json");
+                req.send();
+            }
+
+            const userEl = document.querySelector("#user");
+
+            httpGET("https://api.github.com/users/RandolphCarter-WEB",
+                data => {
+                    const user = JSON.parse(data);
+                    userEl.innerHTML = `
+                        <img src="${user.avatar_url}" /> <br />
+                        User Name : ${user.login} <br />
+                        Github URL : ${user.html_url}
+                    `;
+                }, error => alert(error));
+        </script>
+    </body>
+</html>

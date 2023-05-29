@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div>
+            <input type="number" id="number">
+            <button id="startBtn">피보나치 수열 계산</button>
+        </div>
+        <div id="result"></div>
+
+        <script>
+            const result = document.querySelector("#result");
+            let isCalculation = false;
+
+            if(window.Worker) {
+                const fibonacciWorker = new Worker("fibonacci.js");
+                document.querySelector("#startBtn").addEventListener("click", e => {
+                    if(isCalculation) return;
+                    const value = document.querySelector("#number").value;
+                    fibonacciWorker.postMessage({num : value});
+                    result.innerHTML = "Working ...";
+                    isCalculation = true;
+                });
+
+                fibonacciWorker.onmessage = (e) => {
+                    result.innerHTML = e.data;
+                    isCalculation = false;
+                };
+                fibonacciWorker.onerror = ({ message }) => {
+                    console.error("[ERROR] exception >> " + message);
+                    result.innerHTML = message;
+                    isCalculation = false;
+                }
+            }
+        </script>
+    </body>
+</html>
