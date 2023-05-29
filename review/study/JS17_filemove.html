@@ -1,0 +1,25 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="location"></div>
+        <div>change file path
+            <button id="naverBtn">MoveToNaver</button>
+        </div>
+
+        <script>
+            document.querySelector("#location").innerHTML = `
+                Now Path URL >> ${location.href} <br />
+                Now Path Domain >> ${location.hostname} <br />
+                Now Path Location >> ${location.pathname} <br />
+                Now Path Protocol >> ${location.protocol} <br />
+            `;
+
+            document.querySelector("#naverBtn").addEventListener("click", () => {
+                location.assign("https://www.naver.com");
+            });
+        </script>
+    </body>
+</html>

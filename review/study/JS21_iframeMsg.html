@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div>
+            <label>결제 금액 : </label><b>20000원</b><br>
+            <button id="checkoutBtn">Input Card</button>
+        </div>
+        <iframe id="cardPayment" width="500px" height="200px"></iframe>
+
+        <script>
+            const iWindow = document.querySelector("#cardPayment").contentWindow;
+
+            document.querySelector("#checkoutBtn").addEventListener("click", e => {
+                iWindow.location = "payment.html";
+            });
+
+            window.addEventListener("message", ({ data }) => {
+                if (data.holderName) console.log(data);
+            });
+        </script>
+    </body>
+</html>
